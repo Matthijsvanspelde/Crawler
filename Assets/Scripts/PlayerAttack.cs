@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,16 +16,23 @@ public class PlayerAttack : MonoBehaviour
     {
         handAnim = Hand.GetComponent<Animator>();
         myWeapon = Hand.GetComponentInChildren<Weapon>();
+        handAnim.speed = handAnim.speed / myWeapon.attackSpeed;
+        attackTimer = myWeapon.attackSpeed;
     }
 
 
     void Update()
     {
+        CheckReady();
+    }
+
+    private void CheckReady() 
+    {
         attackTimer += Time.deltaTime;
-        if (Input.GetMouseButtonUp(0) && attackTimer >= myWeapon.attackCoolDown)
+        if (Input.GetMouseButtonUp(0) && attackTimer >= myWeapon.attackSpeed)
         {
-            //handAnim.SetTrigger("attack");
             attackTimer = 0f;
+            handAnim.SetTrigger("Attack");
             DoAttack();
         }
     }
@@ -34,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
+        
         if (Physics.Raycast(ray, out hit, myWeapon.attackRange))
         {
             if (hit.collider.tag == "Enemy")

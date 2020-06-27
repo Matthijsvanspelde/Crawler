@@ -6,5 +6,5 @@ public class Weapon : MonoBehaviour
 {
     public float attackDamage;
     public float attackRange;
-    public float attackCoolDown;
+    public float attackSpeed;
 }
