@@ -30,7 +30,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             attackTimerMelee = 0f;
             handAnim.SetTrigger("Attack");
-            DoAttack(meleeWeapon.attackRange, meleeWeapon.attackDamage);
+            DoAttack(meleeWeapon.attackStabRange, meleeWeapon.attackSlashDamage);
         }
     }
 

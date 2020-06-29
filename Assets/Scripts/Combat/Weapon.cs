@@ -2,8 +2,10 @@
 
 public class Weapon : MonoBehaviour
 {
-    public float attackDamage;
-    public float attackRange;
+    public float attackSlashDamage;
+    public float attackSlashRange;
+    public float attackStabDamage;
+    public float attackStabRange;
     public float attackSpeed;
     public float stamina;
 }
