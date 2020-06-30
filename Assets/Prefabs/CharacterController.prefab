@@ -644,7 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56196036f9daae4db6400bbc854b6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handAnim: {fileID: 4889603005380226395}
+  rightHandAnim: {fileID: 0}
+  leftHandAnim: {fileID: 0}
   rightHandWeapon: {fileID: 7608770538504458791}
   leftHandWeapon: {fileID: 20879766342118203}
 --- !u!1 &8824069794586864414
@@ -656,6 +657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4755277504942253167}
+  - component: {fileID: 6175258065030604585}
   m_Layer: 0
   m_Name: HitPoint
   m_TagString: Untagged
@@ -677,3 +679,16 @@ Transform:
   m_Father: {fileID: 8345955463056847269}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6175258065030604585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824069794586864414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369bd7c6d30fd8345b2f3b9c327d3377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 8345955461859781026}
