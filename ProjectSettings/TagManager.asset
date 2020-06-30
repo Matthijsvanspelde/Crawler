@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - AttachmentPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
