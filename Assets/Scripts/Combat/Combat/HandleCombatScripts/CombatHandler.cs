@@ -7,16 +7,15 @@ public class CombatHandler : MonoBehaviour
     [SerializeField] private Transform pointToHitFrom;
 
     private WeaponStats weaponStats = null;
-    private bool canAttack = true;
     private float currentAttackSpeedTimer = 0f;
     
-    public void HandleRightAttack(WeaponStats stats)
+    public void HandleAttack(WeaponStats stats)
     {
         weaponStats = stats;
 
-        if (canAttack)
+        if (CanAttack)
         {
-            canAttack = false;
+            CanAttack = false;
             StartCoroutine(AttackSpeedTimer());
             StartCoroutine(DoAttack());
         }
@@ -26,14 +25,14 @@ public class CombatHandler : MonoBehaviour
 
     IEnumerator AttackSpeedTimer()
     {
-        while (canAttack == false)
+        while (CanAttack == false)
         {
             currentAttackSpeedTimer += Time.deltaTime;
 
             if (currentAttackSpeedTimer >= weaponStats.AttackSpeed)
             {
                 currentAttackSpeedTimer = 0f;
-                canAttack = true;
+                CanAttack = true;
             }
             yield return null;
         }
@@ -49,7 +48,7 @@ public class CombatHandler : MonoBehaviour
         if (hit.collider != null)
         {
             //we hit something
-            CheckForEnemyHit(hit);
+            HandleHit(hit);
         }
     }
 
@@ -62,12 +61,14 @@ public class CombatHandler : MonoBehaviour
 
     }
 
-    private void CheckForEnemyHit(RaycastHit hit)
+    private void HandleHit(RaycastHit hit)
     {
-        if (hit.collider.tag == "Enemy")
+        StatHolder HitStatHolder =  hit.collider.GetComponent<StatHolder>();
+
+        //Make sure we did not hit something NoneHitable
+        if (HitStatHolder != null)
         {
-            EnemyHealth eHealth = hit.collider.GetComponent<EnemyHealth>();
-            eHealth.TakeDamage(weaponStats.AttackDamage);
+            HitStatHolder.TakeDamage(weaponStats.AttackDamage);
         }
     }
 
@@ -78,6 +79,8 @@ public class CombatHandler : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, weaponStats.AttackRange))
         {
+            Debug.DrawLine(pointToHitFrom.position, hit.point, Color.red,2f);
+
             return hit;
         }
 
@@ -85,5 +88,5 @@ public class CombatHandler : MonoBehaviour
     }
     #endregion
 
-    public bool CanAttack { get => canAttack; }
+    public bool CanAttack { get; private set; } = true;
 }

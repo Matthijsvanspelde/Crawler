@@ -17,6 +17,11 @@ public class WeaponStats : ScriptableObject
     [Header("Cost")]
     [SerializeField] private float staminaCost;
 
+    public virtual void HandleWeapon()
+    {
+        //TODO: Make stamina work
+    }
+
     public float AttackDamage { get => attackDamage;}
     public float AttackRange { get => attackRange;}
     public float AttackSpeed { get => attackSpeed;}

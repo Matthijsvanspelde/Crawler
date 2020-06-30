@@ -6,7 +6,9 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Animator")]
     [SerializeField]
-    private Animator handAnim;
+    private Animator rightHandAnim;
+    [SerializeField]
+    private Animator leftHandAnim;
     [Header("Weapons")]
     [SerializeField]
     private Weapon rightHandWeapon;
@@ -30,18 +32,18 @@ public class PlayerAttack : MonoBehaviour
             //righthand attack
             if (rightCombatHandler.CanAttack)
             {
-                handAnim.SetTrigger("Attack");
+                rightHandAnim.SetTrigger("Attack");
             }
-            rightCombatHandler.HandleRightAttack(rightHandWeapon.Stats);
+            rightCombatHandler.HandleAttack(rightHandWeapon.Stats);
         }
         else if (Input.GetMouseButtonDown(0))
         {
             //lefthand attack
             if (leftCombatHandler.CanAttack)
             {
-                handAnim.SetTrigger("Attack");
+                rightHandAnim.SetTrigger("Attack");
             }
-            leftCombatHandler.HandleRightAttack(leftHandWeapon.Stats);
+            leftCombatHandler.HandleAttack(leftHandWeapon.Stats);
         }
     }
 }

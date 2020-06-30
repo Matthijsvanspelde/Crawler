@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 8345955463056847269}
   - component: {fileID: 8345955463056847264}
   - component: {fileID: 8345955463056847267}
+  - component: {fileID: 3590758530018593344}
   m_Layer: 0
   m_Name: CharacterController
   m_TagString: Untagged
@@ -631,6 +632,21 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &3590758530018593344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345955463056847265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56196036f9daae4db6400bbc854b6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handAnim: {fileID: 4889603005380226395}
+  rightHandWeapon: {fileID: 7608770538504458791}
+  leftHandWeapon: {fileID: 20879766342118203}
 --- !u!1 &8824069794586864414
 GameObject:
   m_ObjectHideFlags: 0
