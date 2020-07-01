@@ -27,7 +27,7 @@ public class StateMachine : MonoBehaviour
     {
         if (currentState != null && currentState.Done)
         {
-            currentState.EndState();
+            currentState.EndState(agent);
             currentState.Done = false;
             NextState();
             PlayCurrentState();
@@ -47,7 +47,7 @@ public class StateMachine : MonoBehaviour
 
     private void PlayCurrentState()
     {
-        currentState?.AwakeState();
-        currentState?.HandleState();
+        currentState?.AwakeState(agent);
+        currentState?.HandleState(agent);
     }
 }

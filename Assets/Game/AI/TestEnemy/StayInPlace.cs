@@ -1,18 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class StayInPlace : MonoBehaviour
+public class StayInPlace : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void AwakeState(NavMeshAgent agent)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EndState(NavMeshAgent agent)
     {
-        
+
+    }
+
+    public override void HandleState(NavMeshAgent agent)
+    {
+        agent.SetDestination(transform.position += Vector3.forward);
+
+        AtDestination(agent);
+    }
+
+    IEnumerator AtDestination(NavMeshAgent agent)
+    {
+        bool done = false;
+        bool forward = false;
+
+        while (done)
+        {
+            yield return null;
+            if (agent.pathStatus == NavMeshPathStatus.PathComplete)
+            {
+                TurnDestinationAround(agent,forward);
+            }
+        }
+    }
+
+    private void TurnDestinationAround(NavMeshAgent agent, bool forward)
+    {
+        if (forward)
+        {
+            agent.SetDestination(transform.position += Vector3.forward * 10);
+            forward = false;
+        }
+        else
+        {
+            agent.SetDestination(transform.position += Vector3.back *  10);
+            forward = true;
+        }
     }
 }
