@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDir: 0
-  spawned: 1
+  spawned: 0
 --- !u!54 &2255242358639395910
 Rigidbody:
   m_ObjectHideFlags: 0
