@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
-public class State : MonoBehaviour
+public class AIState : MonoBehaviour
 {
     [HideInInspector]
     public bool Done = false;
+    [HideInInspector]
+    public StatHolder Stats;
 
-    public EnemyStats Stats;
+    private void Start()
+    {
+        Stats = GetComponentInParent<StatHolder>();
+    }
 
     public virtual void AwakeState(NavMeshAgent agent)
     {

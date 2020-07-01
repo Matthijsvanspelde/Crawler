@@ -5,21 +5,30 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class StateMachine : MonoBehaviour
 {
-    [Tooltip("Make sure default state is the first one to be in the list")]
-    [SerializeField] public List<State> lstStates = new List<State>();
+    private List<AIState> lstStates = new List<AIState>();
 
-    [SerializeField] public State defaultState = null;
+    [SerializeField] public AIState defaultState = null;
 
     [HideInInspector]
     public NavMeshAgent agent;
     [HideInInspector]
-    public State currentState = null;
+    public AIState currentState = null;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = defaultState;
         agent = GetComponent<NavMeshAgent>();
+        SetList();
+        PlayCurrentState();
+    }
+
+    private void SetList()
+    {
+        foreach (AIState state in GetComponentsInChildren<AIState>())
+        {
+            lstStates.Add(state);
+        }
     }
 
     // Update is called once per frame

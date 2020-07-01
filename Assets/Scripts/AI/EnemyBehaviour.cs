@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewEnemyBehaviour", menuName = "AI/EnemyBehaviour")]
 public class EnemyBehaviour : ScriptableObject
 {
-	[SerializeField] private State enemyState;
+	[SerializeField] private AIState enemyState;
 
-	public State EnemyState { get => enemyState; }
+	public AIState EnemyState { get => enemyState; }
 
 }

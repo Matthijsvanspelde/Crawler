@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StayInPlace : State
+public class StayInPlace : AIState
 {
+    private bool forward = false;
+    private Vector3 pos;
+
     public override void AwakeState(NavMeshAgent agent)
     {
 
     }
+
 
     public override void EndState(NavMeshAgent agent)
     {
@@ -17,36 +21,47 @@ public class StayInPlace : State
 
     public override void HandleState(NavMeshAgent agent)
     {
-        agent.SetDestination(transform.position += Vector3.forward);
+        // agent.SetDestination(transform.position + Vector3.forward * 100);
+        pos = transform.position;
+        agent.destination = transform.forward;
+        agent.isStopped = false;
 
-        AtDestination(agent);
+        StartCoroutine(AtDestination(agent));
     }
 
     IEnumerator AtDestination(NavMeshAgent agent)
     {
         bool done = false;
-        bool forward = false;
-
-        while (done)
+        
+        while (!done)
         {
-            yield return null;
-            if (agent.pathStatus == NavMeshPathStatus.PathComplete)
+            yield return new WaitForSeconds(Random.Range(0,2));
+            if (!agent.hasPath)
             {
-                TurnDestinationAround(agent,forward);
+                TurnDestinationAround(agent);
             }
         }
     }
 
-    private void TurnDestinationAround(NavMeshAgent agent, bool forward)
+    private void TurnDestinationAround(NavMeshAgent agent)
     {
         if (forward)
         {
-            agent.SetDestination(transform.position += Vector3.forward * 10);
+            if(Random.Range(0,2) == 1)
+            {
+                agent.destination = transform.right;
+            }
+            else
+            {
+                agent.destination = transform.forward;
+            }
+
             forward = false;
         }
         else
         {
-            agent.SetDestination(transform.position += Vector3.back *  10);
+            agent.destination = pos;
+
             forward = true;
         }
     }
