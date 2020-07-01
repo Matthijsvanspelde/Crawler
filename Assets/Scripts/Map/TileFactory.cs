@@ -45,9 +45,14 @@ public class TileFactory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("AttachmentPoint") && other.GetComponent<TileFactory>().spawned)
+        if (other.CompareTag("AttachmentPoint"))
         {
-            Destroy(gameObject);
+            if (!other.GetComponent<TileFactory>().spawned && !spawned)
+            {
+                Instantiate(roomTemplates.closedRoom, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            spawned = true;
         }
     }
 }
