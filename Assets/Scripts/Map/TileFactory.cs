@@ -12,7 +12,7 @@ public class TileFactory : MonoBehaviour
     private void Start()
     {
         roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.5f);
+        Invoke("Spawn", 0.1f);
     }
 
     private void Spawn()
@@ -47,12 +47,7 @@ public class TileFactory : MonoBehaviour
     {
         if (other.CompareTag("AttachmentPoint"))
         {
-            if (!other.GetComponent<TileFactory>().spawned && !spawned)
-            {
-                Instantiate(roomTemplates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            spawned = true;
+            Destroy(gameObject);
         }
     }
 }
