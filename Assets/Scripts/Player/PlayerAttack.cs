@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
             //lefthand attack
             if (leftCombatHandler.CanAttack)
             {
-                rightHandAnim.SetTrigger("Attack");
+                leftHandAnim.SetTrigger("Attack");
             }
             leftCombatHandler.HandleAttack(leftHandWeapon.Stats);
         }

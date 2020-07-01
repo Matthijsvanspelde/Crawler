@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f109acc829d697d40bf34e213916607c, type: 3}
   m_Name: BasicSword
   m_EditorClassIdentifier: 
-  attackDamage: 5
-  attackRange: 1.3
+  minAttackDamage: 3
+  maxAttackDamage: 5
+  attackRange: 2
   attackSpeed: 0.8
   startupSpeed: 0.2
   staminaCost: 0

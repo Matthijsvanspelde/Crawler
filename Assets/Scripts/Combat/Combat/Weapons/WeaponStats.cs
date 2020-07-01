@@ -5,7 +5,8 @@ using UnityEngine;
 public class WeaponStats : ScriptableObject
 {
     [Header("Damage")]
-    [SerializeField] private float attackDamage;
+    [SerializeField] private float minAttackDamage;
+    [SerializeField] private float maxAttackDamage;
 
     [Header("Range"), Range(0.1f,100)]
     [SerializeField] private float attackRange;
@@ -22,9 +23,11 @@ public class WeaponStats : ScriptableObject
         //TODO: Make stamina work
     }
 
-    public float AttackDamage { get => attackDamage;}
+    public float MinAttackDamage { get => minAttackDamage;}
     public float AttackRange { get => attackRange;}
     public float AttackSpeed { get => attackSpeed;}
     public float StartupSpeed { get => startupSpeed;}
     public float StaminaCost { get => staminaCost;}
+    public float MaxAttackDamage { get => maxAttackDamage; }
+    public float RandomDamage() { return Mathf.Round(Random.Range(minAttackDamage, maxAttackDamage)); }
 }

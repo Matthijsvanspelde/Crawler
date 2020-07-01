@@ -55,11 +55,6 @@ public class CombatHandler : MonoBehaviour
     #endregion
 
     #region Logic
-    private void TakeDamage()
-    {
-        //TODO: implement this for enemy and player
-
-    }
 
     private void HandleHit(RaycastHit hit)
     {
@@ -68,7 +63,7 @@ public class CombatHandler : MonoBehaviour
         //Make sure we did not hit something NoneHitable
         if (HitStatHolder != null)
         {
-            HitStatHolder.TakeDamage(weaponStats.AttackDamage);
+            HitStatHolder.TakeDamage(weaponStats.RandomDamage());
         }
     }
 

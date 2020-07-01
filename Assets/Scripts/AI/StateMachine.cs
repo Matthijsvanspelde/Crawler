@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+
+    List<State> lstStates = new List<State>();
+
+    State start = null;
     // Start is called before the first frame update
     void Start()
     {

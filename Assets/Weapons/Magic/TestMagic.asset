@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: TestMagic
   m_EditorClassIdentifier: Assembly-CSharp::Magic
-  attackDamage: 3
+  minAttackDamage: 1
+  maxAttackDamage: 5
   attackRange: 29
   attackSpeed: 2
-  startupSpeed: 1
+  startupSpeed: 0.3
   staminaCost: 0
   hasManaCost: 0
   maxManaCost: 10
