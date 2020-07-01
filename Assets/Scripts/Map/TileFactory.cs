@@ -6,12 +6,13 @@ public class TileFactory : MonoBehaviour
 
     private RoomTemplates roomTemplates;
     private int random;
+    [SerializeField]
     private bool spawned = false;
 
     private void Start()
     {
         roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 2.0f);
+        Invoke("Spawn", 0.5f);
     }
 
     private void Spawn()
