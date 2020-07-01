@@ -1,26 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class StateMachine : MonoBehaviour
 {
     [Tooltip("Make sure default state is the first one to be in the list")]
-    [SerializeField] private List<State> lstStates = new List<State>();
+    [SerializeField] public List<State> lstStates = new List<State>();
 
-    [SerializeField] private State defaultState = null;
+    [SerializeField] public State defaultState = null;
 
-    private State currentState = null;
+    [HideInInspector]
+    public NavMeshAgent agent;
+    [HideInInspector]
+    public State currentState = null;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = defaultState;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState.Done)
+        if (currentState != null && currentState.Done)
         {
             currentState.EndState();
             currentState.Done = false;
