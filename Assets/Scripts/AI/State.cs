@@ -7,7 +7,7 @@ public abstract class State : MonoBehaviour
 {
     public bool Done = false;
 
-    public UnityEvent transition;
+    public EnemyStats EnemyStats;
 
     public virtual void AwakeState()
     {
@@ -23,5 +23,4 @@ public abstract class State : MonoBehaviour
     {
 
     }
-
 }
