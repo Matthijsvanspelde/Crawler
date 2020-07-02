@@ -8,7 +8,7 @@ public class AIState : MonoBehaviour
     [HideInInspector]
     public StatHolder Stats;
 
-    private void Start()
+    private void Awake()
     {
         Stats = GetComponentInParent<StatHolder>();
     }

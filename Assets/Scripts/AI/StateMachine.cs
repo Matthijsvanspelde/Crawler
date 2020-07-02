@@ -20,6 +20,11 @@ public class StateMachine : MonoBehaviour
         PlayCurrentState();
     }
 
+    public void GoToSpecificBehaviour(AIState stateToTransitionTo)
+    {
+
+    }
+
     private void SetList()
     {
         foreach (AIState state in GetComponentsInChildren<AIState>())
