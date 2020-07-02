@@ -20,9 +20,11 @@ public class StateMachine : MonoBehaviour
         PlayCurrentState();
     }
 
-    public void GoToSpecificBehaviour(AIState stateToTransitionTo)
+    public void GoToSpecificState(AIState stateToTransitionTo)
     {
-
+        CloseCurrentState();
+        currentState = stateToTransitionTo;
+        PlayCurrentState();
     }
 
     private void SetList()
@@ -38,11 +40,16 @@ public class StateMachine : MonoBehaviour
     {
         if (currentState != null && currentState.Done)
         {
-            currentState.EndState(agent);
-            currentState.Done = false;
+            CloseCurrentState();
             NextState();
             PlayCurrentState();
         }
+    }
+
+    private void CloseCurrentState()
+    {
+        currentState.EndState(agent);
+        currentState.Done = false;
     }
 
     private void NextState()
@@ -53,7 +60,6 @@ public class StateMachine : MonoBehaviour
             currentState = lstStates[index];
         else
             currentState = lstStates[0];
-
     }
 
     private void PlayCurrentState()

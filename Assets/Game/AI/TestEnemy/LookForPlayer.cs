@@ -5,27 +5,34 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
-public class CheckForEnemy : AIState
+public class LookForPlayer : AIState
 {
-    [SerializeField] private UnityEvent AfterFindingPlayer = new UnityEvent();
+    [SerializeField] private UnityEvent PlayerSpotted = new UnityEvent();
     private SphereCollider triggerCollider;
     private EnemyStats enemyStats;
+
+    private bool lookForPlayer = false;
 
     private void Start()
     {
         AwakeState();
-
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (lookForPlayer)
         {
-            transform.LookAt(other.transform);
-
-            if (SeePlayer(transform.forward))
+            if (other.tag == "Player")
             {
-                Debug.Log("I see you");
+                Quaternion oldRotation = transform.rotation;
+                transform.LookAt(other.transform);
+                transform.rotation = oldRotation;
+
+                if (SeePlayer(transform.forward))
+                {
+                    PlayerSpotted.Invoke();
+                    lookForPlayer = false;
+                }
             }
         }
     }
@@ -49,13 +56,16 @@ public class CheckForEnemy : AIState
 
     public void AwakeState()
     {
+        SetTrigger();
+        lookForPlayer = true;
+    }
+
+    private void SetTrigger()
+    {
         enemyStats = (EnemyStats)Stats.Stats;
         triggerCollider = GetComponent<SphereCollider>();
-
         triggerCollider.isTrigger = true;
-
         triggerCollider.radius = enemyStats.DetectionRadius;
-
     }
 
     private void OnDrawGizmos()

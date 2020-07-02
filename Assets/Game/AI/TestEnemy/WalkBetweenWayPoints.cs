@@ -7,8 +7,11 @@ public class WalkBetweenWayPoints : AIState
 {
     [SerializeField]private List<Transform> WayPoints = new List<Transform>();
     [SerializeField] private bool LoopPath = false;
+    [SerializeField] private bool ResolveInRandomOrder = false;
     [Range(0.5f,10)]
     [SerializeField] private float WaitTimeAtPoint;
+
+    private int currentIndex = 0;
 
     public override void AwakeState(NavMeshAgent agent)
     {
@@ -22,7 +25,6 @@ public class WalkBetweenWayPoints : AIState
 
     private IEnumerator MoveToWayPoint(NavMeshAgent agent)
     {
-        
             foreach (Transform wayPoint in WayPoints)
             {
                 agent.destination = wayPoint.position;
@@ -39,6 +41,7 @@ public class WalkBetweenWayPoints : AIState
 
         if (LoopPath)
         {
+            currentIndex = 0;
             HandleState(agent);
         }
         else
