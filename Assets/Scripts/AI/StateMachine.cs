@@ -2,14 +2,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class StateMachine : MonoBehaviour
 {
     private List<AIState> lstStates = new List<AIState>();
 
     [SerializeField] public AIState defaultState = null;
 
-    [HideInInspector]
     public NavMeshAgent agent;
     [HideInInspector]
     public AIState currentState = null;
@@ -18,7 +16,6 @@ public class StateMachine : MonoBehaviour
     void Start()
     {
         currentState = defaultState;
-        agent = GetComponent<NavMeshAgent>();
         SetList();
         PlayCurrentState();
     }

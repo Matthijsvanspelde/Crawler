@@ -56,7 +56,7 @@ public class StayInPlace : AIState
                 agent.destination = transform.forward;
             }
 
-            forward = false;
+            Done = true;
         }
         else
         {
