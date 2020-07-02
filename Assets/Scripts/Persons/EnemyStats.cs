@@ -6,5 +6,8 @@ using UnityEngine;
 public class EnemyStats : Stats
 {
     [SerializeField] Mesh model;
-    [SerializeField] float detectionRadius;
+
+	[SerializeField] private float detectionRadius;
+
+	public float DetectionRadius { get => detectionRadius; set => detectionRadius = value; }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   model: {fileID: 0}
+  detectionRadius: 20
