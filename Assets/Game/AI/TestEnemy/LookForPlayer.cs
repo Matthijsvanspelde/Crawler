@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class LookForPlayer : AIState
 {
     [SerializeField] private UnityEvent PlayerSpotted = new UnityEvent();
+    [Range(1,360)]
+    [SerializeField] private float ViewAngle = 70;
     private SphereCollider triggerCollider;
     private EnemyStats enemyStats;
 
@@ -24,14 +26,15 @@ public class LookForPlayer : AIState
         {
             if (other.tag == "Player")
             {
-                Quaternion oldRotation = transform.rotation;
-                transform.LookAt(other.transform);
-                transform.rotation = oldRotation;
-
-                if (SeePlayer(transform.forward))
+                Vector3 rayEndPoint = other.transform.position - transform.position;
+                float angle = Vector3.Angle(rayEndPoint, transform.forward);
+                if (angle < ViewAngle - 30)
                 {
-                    PlayerSpotted.Invoke();
-                    lookForPlayer = false;
+                    if (SeePlayer(rayEndPoint))
+                    {
+                        PlayerSpotted.Invoke();
+                        lookForPlayer = false;
+                    }
                 }
             }
         }
@@ -43,7 +46,7 @@ public class LookForPlayer : AIState
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, enemyStats.DetectionRadius))
         {
-            Debug.DrawLine(transform.position, hit.point, Color.green, 5f);
+            Debug.DrawRay(transform.position, playerPos, Color.green, 5f);
 
             if (hit.collider.CompareTag("Player"))
             {
@@ -72,7 +75,15 @@ public class LookForPlayer : AIState
     {
         if (enemyStats != null)
         {
-            Gizmos.DrawWireSphere(transform.position, enemyStats.DetectionRadius);
+            float totalFOV = ViewAngle;
+            float rayRange = enemyStats.DetectionRadius;
+            float halfFOV = totalFOV / 2.0f;
+            Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
+            Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
+            Vector3 leftRayDirection = leftRayRotation * transform.forward;
+            Vector3 rightRayDirection = rightRayRotation * transform.forward;
+            Gizmos.DrawRay(transform.position, leftRayDirection * rayRange) ;
+            Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
         }
     }
 }

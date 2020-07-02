@@ -5,6 +5,7 @@ using UnityEngine;
 public class CombatHandler : MonoBehaviour
 {
     [SerializeField] private Transform pointToHitFrom;
+    [SerializeField] private LayerMask CanHit;
 
     private WeaponStats weaponStats = null;
     private float currentAttackSpeedTimer = 0f;
@@ -45,9 +46,10 @@ public class CombatHandler : MonoBehaviour
         yield return new WaitForSeconds(weaponStats.StartupSpeed);
         RaycastHit hit = GetRayCastHit();
 
-        if (hit.collider != null)
+        if (hit.collider != null && !hit.collider.isTrigger)
         {
             //we hit something
+            Debug.DrawLine(pointToHitFrom.position, hit.point, Color.red, 2f);
             HandleHit(hit);
         }
     }
@@ -72,10 +74,8 @@ public class CombatHandler : MonoBehaviour
         Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, weaponStats.AttackRange))
+        if (Physics.Raycast(ray, out hit, weaponStats.AttackRange, CanHit))
         {
-            Debug.DrawLine(pointToHitFrom.position, hit.point, Color.red,2f);
-
             return hit;
         }
 
