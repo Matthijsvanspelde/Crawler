@@ -11,8 +11,8 @@ public class TileFactory : MonoBehaviour
 
     private void Start()
     {
-        roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.5f);
+        //roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        //Invoke("Spawn", 0.5f);
     }
 
     private void Spawn()
@@ -43,16 +43,16 @@ public class TileFactory : MonoBehaviour
         }       
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("AttachmentPoint"))
-        {
-            if (!other.GetComponent<TileFactory>().spawned && !spawned)
-            {
-                Instantiate(roomTemplates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            spawned = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("AttachmentPoint"))
+    //    {
+    //        if (!other.GetComponent<TileFactory>().spawned && !spawned)
+    //        {
+    //            Instantiate(roomTemplates.closedRoom, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
+    //        }
+    //        spawned = true;
+    //    }
+    //}
 }
