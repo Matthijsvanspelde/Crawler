@@ -40,7 +40,7 @@ public class MapGenerator : MonoBehaviour
         while (KeepFilling)
         {
             CreateTilesAroundTile(t);
-            //yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(2);
             // yield return null;
 
             t = map[LoopedAmount];
@@ -208,7 +208,7 @@ public class MapGenerator : MonoBehaviour
 
     private void SpawnTile(Tile TileToSpawn, Vector3 SpawnLocation, Side s,int xpos,int ypos)
     {
-        GameObject ToSpawn = Instantiate(TileToSpawn.Data.PrefabObject);
+        GameObject ToSpawn = Instantiate(TileToSpawn.PrefabObject);
         ToSpawn.SetActive(true);
         ToSpawn.transform.position = SpawnLocation;
 
@@ -225,8 +225,6 @@ public class MapGenerator : MonoBehaviour
     {
         List<int> lstXpos = new List<int>();
         List<int> lstYpos = new List<int>();
-
-
     }
 
     private Tile GetRandomTile()

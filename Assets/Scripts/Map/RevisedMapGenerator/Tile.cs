@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    [Header("Data")]
     [SerializeField] private TileData data;
-
+    [Header("AttachmentPoints")]
     [SerializeField] private Transform middlePoint;
-
     [SerializeField] private List<AttachmentPoints> points = new List<AttachmentPoints>();
+    [Header("Object connected to tile")]
+    [SerializeField] private GameObject prefabObject;
 
     [HideInInspector]
     public int xPos;
@@ -76,6 +78,13 @@ public class Tile : MonoBehaviour
         return false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(this);
+    }
+
     public TileData Data { get => data; }
     public List<AttachmentPoints> Points { get => points; set => points = value; }
+
+    public GameObject PrefabObject { get => prefabObject; }
 }
