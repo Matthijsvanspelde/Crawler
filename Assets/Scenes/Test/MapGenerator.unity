@@ -244,11 +244,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 8177934754234490516, guid: 7de3295bbe5e12840ab1b6eabe978f1b, type: 3}
-  startTile: {fileID: 8177934754234490516, guid: 7de3295bbe5e12840ab1b6eabe978f1b,
+  - {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5, type: 3}
+  - {fileID: 7385527859917338563, guid: 8a397d2faf5bd5a4ca217ee97bc3d4bf, type: 3}
+  - {fileID: 8177934754234490516, guid: 5b837d81ee05ee145b427920ec6a0466, type: 3}
+  startTile: {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5,
     type: 3}
   emptyTile: {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5,
     type: 3}
-  AmountToLoop: 5
+  xSize: 30
+  ySize: 30
   EmptySpawnPrecentage: 20
 --- !u!4 &1138227231
 Transform:

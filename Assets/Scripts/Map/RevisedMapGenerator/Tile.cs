@@ -10,31 +10,41 @@ public class Tile : MonoBehaviour
 
     [SerializeField] private List<AttachmentPoints> points = new List<AttachmentPoints>();
 
-    private Tile leftTile, rightTile, bottomTile, topTile;
+    [HideInInspector]
+    public int xPos;
+    [HideInInspector]
+    public int yPos;
+
+    public int xSize;
+    public int ySize;
 
     public float Distance(AttachmentPoints point)
     {
-        AttachmentPoints p = Points[Points.IndexOf(point)];
-        if (p != null)
+        int index = Points.IndexOf(point);
+        if (index >= 0 && index <= Points.Count)
         {
-            return Vector3.Distance(middlePoint.position, p.transform.position);
+            AttachmentPoints p = Points[index];
+            if (p != null)
+            {
+                return Vector3.Distance(middlePoint.position, p.transform.position);
+            }
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 
     public void FillAttachmentPoint(Side s)
     {
-        GetPointFromSide(s).Empty = false;
+        AttachmentPoints at = GetPointFromSide(s);
+
+        if(at !=null)
+            at.Empty = false;
     }
 
     public AttachmentPoints GetPointFromSide(Side SpawnSide)
     {
         foreach (AttachmentPoints point in Points)
         {
-            if (point.Empty && point.SpawnSide == SpawnSide)
+            if (point.SpawnSide == SpawnSide)
             {
                 return point;
             }

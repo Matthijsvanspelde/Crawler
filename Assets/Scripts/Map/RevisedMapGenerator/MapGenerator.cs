@@ -10,12 +10,15 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Tile startTile;
     [SerializeField] private Tile emptyTile;
     [Header("Size")]
-    [SerializeField] private int AmountToLoop = 4;
+    [SerializeField] private int xSize = 4;
+    [SerializeField] private int ySize = 4;
     [Header("SpawnSettings")]
     [Range(0,100)]
     [SerializeField] private int EmptySpawnPrecentage = 0;
 
-    private int LoopedAmount = 0;
+    private Tile[,] tileGrid;
+
+    private int LoopedAmount = 1;
 
     private List<Tile> map = new List<Tile>();
     private bool canBeEndPiece = false;
@@ -25,32 +28,35 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnTile(startTile, new Vector3(0,0,0));
+        tileGrid = new Tile[xSize, ySize];
+        SpawnTile(startTile, new Vector3(0,0,0), (Side)UnityEngine.Random.Range(0,4),xSize / 2, ySize / 2);
         FillMap();
     }
 
     private void FillMap()
-    {
-        StartCoroutine(testFill());
-    }
-
-    IEnumerator testFill()
     {
         Tile t = map[0];
 
         while (KeepFilling)
         {
             CreateTilesAroundTile(t);
-            yield return new WaitForSeconds(3f);
-            LoopedAmount++;
-            t = map[LoopedAmount];
+            //yield return new WaitForSeconds(1);
+            // yield return null;
 
-            if (LoopedAmount >= AmountToLoop)
+            t = map[LoopedAmount];
+            LoopedAmount++;
+            if (LoopedAmount >= map.Count)
             {
                 KeepFilling = false;
             }
         }
+        //StartCoroutine(testFill());
     }
+
+    //IEnumerator testFill()
+    //{
+        
+    //}
 
     private bool SpawnEmptyTile()
     {
@@ -75,11 +81,9 @@ public class MapGenerator : MonoBehaviour
             float SideDistance = GetSideDistance(t, (Side)SideNumber);
 
             //if true then we have space to spawn a new tile
-            if (SideDistance > 0)
+            if (SideDistance > 0 && !float.IsNaN(SideDistance))
             {
                 Tile ToSpawn = null;
-
-                t.FillAttachmentPoint((Side)SideNumber);
 
                 float ToSpawnSideDistance = 0;
 
@@ -89,17 +93,55 @@ public class MapGenerator : MonoBehaviour
                     ToSpawnSideDistance = GetSideDistance(ToSpawn, GetOpositeSide((Side)SideNumber));
                 }
 
+                t.FillAttachmentPoint((Side)SideNumber);
+
                 Vector3 spawnLocation = CalculateSpawnLocation(t,SideDistance,ToSpawnSideDistance,(Side)SideNumber);
 
-                if (SpawnEmptyTile())
+                int xpos = GetxPosFromSide(t, (Side)SideNumber);
+                int ypos = GetyPosFromSide(t, (Side)SideNumber);
+
+                if (xpos >= 0 && xpos < xSize && ypos >= 0 && ypos < ySize)
                 {
-                    SpawnTile(emptyTile, spawnLocation);
-                }
-                else
-                {
-                    SpawnTile(ToSpawn, spawnLocation);
+                    if (tileGrid[xpos, ypos] == null)
+                    {
+                        SpawnTile(ToSpawn, spawnLocation, GetOpositeSide((Side)SideNumber), xpos, ypos);
+                    }
                 }
             }
+        }
+    }
+
+    private int GetxPosFromSide(Tile origin, Side s)
+    {
+        switch (s)
+        {
+            case Side.TOP:
+                return origin.xPos;
+            case Side.BOTTOM:
+                return origin.xPos;
+            case Side.RIGHT:
+                return origin.xPos + 1;
+            case Side.LEFT:
+                return origin.xPos - 1;
+            default:
+                return 0;
+        }
+    }
+
+    private int GetyPosFromSide(Tile origin, Side s)
+    {
+        switch (s)
+        {
+            case Side.TOP:
+                return origin.yPos + 1;
+            case Side.BOTTOM:
+                return origin.yPos - 1;
+            case Side.RIGHT:
+                return origin.yPos;
+            case Side.LEFT:
+                return origin.yPos;
+            default:
+                return 0;
         }
     }
 
@@ -164,7 +206,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private void SpawnTile(Tile TileToSpawn, Vector3 SpawnLocation)
+    private void SpawnTile(Tile TileToSpawn, Vector3 SpawnLocation, Side s,int xpos,int ypos)
     {
         GameObject ToSpawn = Instantiate(TileToSpawn.Data.PrefabObject);
         ToSpawn.SetActive(true);
@@ -172,39 +214,19 @@ public class MapGenerator : MonoBehaviour
 
         Tile tile = ToSpawn.GetComponent<Tile>();
 
-        AttachTile(tile);
+        tile.xPos = xpos;
+        tile.yPos = ypos;
 
+        tileGrid[xpos, ypos] = tile;
         map.Add(tile);
     }
 
-    private void AttachTile(Tile t)
+    private void AddTileToGrid(Tile tileToAdd)
     {
-        for (int SideNumber = 0; SideNumber < 4; SideNumber++)
-        {
-            if (ShootRay((Side)SideNumber, t))
-            {
-                t.FillAttachmentPoint((Side)SideNumber);
-            }
-        }
-    }
-
-    private bool ShootRay(Side s, Tile t)
-    {
-        Vector3 tempVector = t.GetPointFromSide(s).transform.position;
+        List<int> lstXpos = new List<int>();
+        List<int> lstYpos = new List<int>();
 
 
-        Ray ray = new Ray(tempVector, t.GetPointFromSide(s).transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, t.Distance(t.GetPointFromSide(s))))
-        {
-            hit.collider.GetComponentInParent<Tile>().FillAttachmentPoint(s);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
     private Tile GetRandomTile()
