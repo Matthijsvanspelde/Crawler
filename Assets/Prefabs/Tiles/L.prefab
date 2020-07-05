@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5647240760621381351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971539643528120800}
   - component: {fileID: 7372957176034391198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint1
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 139442107726053255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterPoint
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 5052157927390402019}
   - component: {fileID: 8193974861300727252}
   - component: {fileID: 3028029104978135171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6588810152134448882}
   - component: {fileID: 6102041337663410041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint0
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -368,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882030184966034556, guid: 0a8896d2d742fc947a6b8e946f8853d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8896d2d742fc947a6b8e946f8853d8, type: 3}

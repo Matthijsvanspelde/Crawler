@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4298668585884622660}
   - component: {fileID: 6073634840806696613}
   - component: {fileID: 6139681359652452242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097724118951173250}
   - component: {fileID: 5561155195178669421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131324810756767060}
   - component: {fileID: 1623554915169754135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2782450747988466231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2286017884860061841}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8463797822193631328}
   - component: {fileID: 7926580535996753704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,6 +423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 8556650269057259198, guid: ae6b8364b59b9214b91bfd8bbd0ef76b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae6b8364b59b9214b91bfd8bbd0ef76b, type: 3}
 --- !u!4 &4415539522627873747 stripped
@@ -442,6 +447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BrokenPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 989241631487959335, guid: e795fc1093868b745adb32d512835a00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8499605475020021292, guid: e795fc1093868b745adb32d512835a00,
         type: 3}
@@ -518,10 +528,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7681969471585042247}
     m_Modifications:
+    - target: {fileID: 1383317064827191794, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1727301368295518675, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}
       propertyPath: m_Name
       value: TorchWithHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727301368295518675, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018695575352534765, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811006447384645506, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5309953684277738070, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}
@@ -582,6 +612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029937136788937784, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef0c20a76f3e824ea9090f6598d52c5, type: 3}

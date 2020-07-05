@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7724236156844019227}
   - component: {fileID: 2470854098041102787}
   - component: {fileID: 7409284394399666582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 1
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4163328174613976657}
   - component: {fileID: 7776964569771318545}
   - component: {fileID: 632997009866297707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 4
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 5352447162696928074}
   - component: {fileID: 9088197812595666774}
   - component: {fileID: 3115883467875113719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

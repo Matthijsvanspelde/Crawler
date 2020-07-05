@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fded906d887834190af95345d831a3, type: 3}
   m_Name: TileSmallWallRotated
   m_EditorClassIdentifier: 
-  isEmptyTile: 0
-  isEndPiece: 0
-  prefabObject: {fileID: 6588810152162286885, guid: 5b837d81ee05ee145b427920ec6a0466,
-    type: 3}
+  chanceToSpawn: 5

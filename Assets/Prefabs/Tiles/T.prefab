@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7714803546341639818}
   - component: {fileID: 923822541888225551}
   - component: {fileID: 7214788111423890391}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 8409560204165277888}
   - component: {fileID: 8806318839539946933}
   - component: {fileID: 8806318839539946934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 1
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -268,6 +268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882030184966034556, guid: 0a8896d2d742fc947a6b8e946f8853d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8896d2d742fc947a6b8e946f8853d8, type: 3}

@@ -10,9 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9fded906d887834190af95345d831a3, type: 3}
-  m_Name: BasicTile
+  m_Name: TileSmallWall
   m_EditorClassIdentifier: 
-  isEmptyTile: 0
-  isEndPiece: 0
-  prefabObject: {fileID: 6588810152162286885, guid: 7de3295bbe5e12840ab1b6eabe978f1b,
-    type: 3}
+  chanceToSpawn: 10

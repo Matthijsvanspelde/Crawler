@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7970630482457130898}
   - component: {fileID: 6705606526767462925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 4
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5565360638609084680}
   - component: {fileID: 2304245145825134265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 3
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8069216826529054924}
   - component: {fileID: 7861633867603391772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 2
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8282151887186928647}
   - component: {fileID: 3777142404861544324}
   - component: {fileID: 4124832929218259213}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457562575450823821}
   - component: {fileID: 844159185109175537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoint 1
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2761299241286511735}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterPoint
   m_TagString: AttachmentPoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2978821163489732589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttachmentPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}

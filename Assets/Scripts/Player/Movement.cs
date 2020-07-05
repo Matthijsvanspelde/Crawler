@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.6f;
     public LayerMask groundMask;
 
     private Vector3 Velocity;
@@ -20,7 +20,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask.value);
+
+        Debug.Log(isGrounded);
 
         if (isGrounded && Velocity.y < 0)
         {
@@ -42,5 +44,10 @@ public class Movement : MonoBehaviour
         Velocity.y += gravity * Time.deltaTime;
 
         controller.Move(Velocity * Time.deltaTime);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
     }
 }

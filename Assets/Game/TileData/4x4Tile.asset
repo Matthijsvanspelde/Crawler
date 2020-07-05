@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fded906d887834190af95345d831a3, type: 3}
   m_Name: 4x4Tile
   m_EditorClassIdentifier: 
-  isEmptyTile: 0
-  isEndPiece: 0
-  prefabObject: {fileID: 6588810152162286885, guid: c8ad020fd2d1b0f4a8a54b243e9a53f9,
-    type: 3}
+  chanceToSpawn: 10
