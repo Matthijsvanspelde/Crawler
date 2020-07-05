@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1138227231}
   - component: {fileID: 1138227230}
+  - component: {fileID: 1138227232}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -311,15 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6730c260eea1d7a4ebb3cdc164d3aa3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefabs:
-  - {fileID: 8177934754234490516, guid: c8ad020fd2d1b0f4a8a54b243e9a53f9, type: 3}
-  - {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5, type: 3}
-  - {fileID: 7385527859917338563, guid: 8a397d2faf5bd5a4ca217ee97bc3d4bf, type: 3}
-  - {fileID: 8177934754234490516, guid: 5b837d81ee05ee145b427920ec6a0466, type: 3}
-  - {fileID: 5014570068343042223, guid: 96275825c5c6fc048b547420e5756c04, type: 3}
+  tilePrefabsList: []
   startTile: {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5,
-    type: 3}
-  emptyTile: {fileID: 4186048742832177023, guid: 465d352e43b19b54d80eb6dfc87e08d5,
     type: 3}
   xSize: 10
   ySize: 10
@@ -337,6 +331,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138227232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138227229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f320a82354fc5f4c84e49d5fddea4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303250609
 GameObject:
   m_ObjectHideFlags: 0
