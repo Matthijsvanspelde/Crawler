@@ -5,12 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewTileData", menuName = "Create New TileData")]
 public class TileData : ScriptableObject
 {
-    [SerializeField] private bool isEmptyTile = false;
-    [SerializeField] private bool isEndPiece = false;
+    [SerializeField] private int ChanceToSpawn = 100;
 
-    
-
-    public bool IsEmptyTile { get => isEmptyTile; }
-    public bool IsEndPiece { get => isEndPiece; }
-    
+    public int ChanceToSpawn1 { get => ChanceToSpawn; }
 }
