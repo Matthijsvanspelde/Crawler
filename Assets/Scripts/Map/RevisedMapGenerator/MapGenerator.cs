@@ -12,19 +12,19 @@ public class MapGenerator : MonoBehaviour
     [Header("Size")]
     [SerializeField] private int xSize = 4;
     [SerializeField] private int ySize = 4;
-    [Header("SpawnSettings")]
-    [Range(0,100)]
-    [SerializeField] private int EmptySpawnPrecentage = 0;
 
     private Tile[,] tileGrid;
 
     private int LoopedAmount = 1;
+    private int TotalChance = 0;
 
     private List<Tile> map = new List<Tile>();
-    private bool canBeEndPiece = false;
 
+    private bool canBeEndPiece = false;
     private bool KeepFilling = true;
-    
+
+    private List<Tile> tilePool = new List<Tile>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,23 +57,7 @@ public class MapGenerator : MonoBehaviour
     //{
         
     //}
-
-    private bool SpawnEmptyTile()
-    {
-        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
-
-        float rand = UnityEngine.Random.Range(1, 100);
-        
-        if (rand < EmptySpawnPrecentage)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
+    
     private void CreateTilesAroundTile(Tile t)
     {
         for (int SideNumber = 0; SideNumber < 4; SideNumber++)
@@ -221,32 +205,26 @@ public class MapGenerator : MonoBehaviour
         map.Add(tile);
     }
 
-    private void AddTileToGrid(Tile tileToAdd)
-    {
-        List<int> lstXpos = new List<int>();
-        List<int> lstYpos = new List<int>();
-    }
-
     private Tile GetRandomTile()
     {
-        Tile tileToReturn = tilePrefabs[UnityEngine.Random.Range(0,tilePrefabs.Count)];
+        if (TotalChance == 0)
+            SetTotalChance();
 
-        if (!canBeEndPiece)
-        {
-            return tileToReturn;
-        }
-        else
-        {
-            if (tileToReturn.Data.IsEndPiece)
-            {
-                GetRandomTile();
-            }
-            else
-            {
-                return tileToReturn;
-            }
-        }
+        int randomIndex = UnityEngine.Random.Range(0, TotalChance);
 
-        return null;
+        Tile tileToReturn = tilePool[randomIndex];
+        return tileToReturn;
+    }
+
+    private void SetTotalChance()
+    {
+        foreach (Tile tile in tilePrefabs)
+        {
+            for (int i = 0; i < tile.Data.ChanceToSpawn; i++)
+            {
+                TotalChance++;
+                tilePool.Add(tile);
+            }
+        }
     }
 }
