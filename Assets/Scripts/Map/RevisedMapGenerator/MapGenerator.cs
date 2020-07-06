@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(SideCalculator))]
 public class MapGenerator : MonoBehaviour
@@ -35,6 +36,7 @@ public class MapGenerator : MonoBehaviour
         tileMapGrid = new Tile[xSize, ySize];
         SpawnTile(startTile, new Vector3(0,0,0), (Side)UnityEngine.Random.Range(0,4),xSize / 2, ySize / 2);
         FillMap();
+        
     }
 
     private void FillMap()
@@ -124,6 +126,7 @@ public class MapGenerator : MonoBehaviour
     {
         ToSpawn.SetActive(true);
         ToSpawn.transform.position = SpawnLocation;
+        ToSpawn.transform.parent = transform;
     }
 
     private Tile GetRandomTile()

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fded906d887834190af95345d831a3, type: 3}
   m_Name: BasicTile
   m_EditorClassIdentifier: 
-  chanceToSpawn: 10
+  chanceToSpawn: 1
