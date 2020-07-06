@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Equipment
 {
     [SerializeField] private WeaponStats baseStats;
-    [SerializeField] private InventorySlot availableSlots;
 
     public void OnDrawGizmosSelected()
     {
@@ -12,5 +11,4 @@ public class Weapon : MonoBehaviour
     }
 
     public WeaponStats Stats { get => baseStats;}
-    public InventorySlot AvailableSlots { get => availableSlots; }
 }
