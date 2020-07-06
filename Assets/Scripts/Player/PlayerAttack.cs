@@ -20,8 +20,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        rightCombatHandler = rightHandWeapon.GetComponentInParent<CombatHandler>();
-        leftCombatHandler = leftHandWeapon.GetComponentInParent<CombatHandler>();
+        rightCombatHandler = rightHandWeapon.GetComponentInParent<Transform>().GetComponentInParent<CombatHandler>();
+        leftCombatHandler = leftHandWeapon.GetComponentInParent<Transform>().GetComponentInParent<CombatHandler>();
     }
 
     private void Update()

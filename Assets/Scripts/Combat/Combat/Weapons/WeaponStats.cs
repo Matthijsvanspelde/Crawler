@@ -2,32 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponStats : ScriptableObject
+[System.Serializable]
+public class WeaponStats
 {
     [Header("Damage")]
-    [SerializeField] private float minAttackDamage = 0;
-    [SerializeField] private float maxAttackDamage = 4;
+    [SerializeField] private Stat minAttackDamage;
+    [SerializeField] private Stat maxAttackDamage;
 
-    [Header("Range"), Range(0.1f,100)]
-    [SerializeField] private float attackRange = 10;
+    [Header("Range")]
+    [SerializeField] private Stat attackRange;
 
     [Header("Speed")]
-    [SerializeField] private float attackSpeed = 0.2f;
-    [SerializeField] private float startupSpeed;
+    [SerializeField] private Stat attackSpeed;
+    [SerializeField] private Stat startupSpeed;
 
     [Header("Cost")]
-    [SerializeField] private float staminaCost;
+    [SerializeField] private Stat staminaCost;
 
     public virtual void HandleWeapon()
     {
         //TODO: Make stamina work
     }
 
-    public float MinAttackDamage { get => minAttackDamage;}
-    public float AttackRange { get => attackRange;}
-    public float AttackSpeed { get => attackSpeed;}
-    public float StartupSpeed { get => startupSpeed;}
-    public float StaminaCost { get => staminaCost;}
-    public float MaxAttackDamage { get => maxAttackDamage; }
-    public float RandomDamage() { return Mathf.Round(Random.Range(minAttackDamage, maxAttackDamage)); }
+    public Stat MinAttackDamage { get => minAttackDamage;}
+    public Stat AttackRange { get => attackRange;}
+    public Stat AttackSpeed { get => attackSpeed;}
+    public Stat StartupSpeed { get => startupSpeed;}
+    public Stat StaminaCost { get => staminaCost;}
+    public Stat MaxAttackDamage { get => maxAttackDamage; }
+    public int RandomDamage() { return Mathf.RoundToInt(Random.Range(minAttackDamage.GetValue(), maxAttackDamage.GetValue())); }
 }

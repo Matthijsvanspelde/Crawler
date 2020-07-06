@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class StatHolder : MonoBehaviour
 {
-    [SerializeField] private Stats stats;
+    [SerializeField] private StatLine stats;
 
     private float currentHealth = 1;
 
     private void Awake()
     {
-        currentHealth = Stats.MaxHealth;
+        currentHealth = stats.MaxHealth.GetValue();
     }
 
     public void Heal(float amount)
     {
         currentHealth += amount;
 
-        if (currentHealth > Stats.MaxHealth)
-            currentHealth = Stats.MaxHealth;
+        if (currentHealth > stats.MaxHealth.GetValue())
+            currentHealth = stats.MaxHealth.GetValue();
     }
     
     public void TakeDamage(float amount)
@@ -43,5 +43,5 @@ public class StatHolder : MonoBehaviour
         }
     }
 
-    public Stats Stats { get => stats; }
+    public StatLine Stats { get => stats; }
 }

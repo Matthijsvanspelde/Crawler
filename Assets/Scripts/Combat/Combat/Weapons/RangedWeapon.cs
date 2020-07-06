@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(fileName = "NewRangedWeapon", menuName = "WeaponStats/RangedWeapon")]
-public class RangedWeapon : WeaponStats
+public class RangedWeapon : Weapon
 {
     [Header("Ammo")]
     [SerializeField] private bool usesAmmo;

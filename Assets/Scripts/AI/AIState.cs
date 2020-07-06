@@ -6,11 +6,11 @@ public class AIState : MonoBehaviour
     [HideInInspector]
     public bool Done = false;
     [HideInInspector]
-    public StatHolder Stats;
+    public StatLine Stats;
 
     private void Awake()
     {
-        Stats = GetComponentInParent<StatHolder>();
+        Stats = GetComponentInParent<StatLine>();
     }
 
     public virtual void AwakeState(NavMeshAgent agent)
