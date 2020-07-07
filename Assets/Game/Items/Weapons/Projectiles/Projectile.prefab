@@ -51,7 +51,7 @@ MonoBehaviour:
   CanHit:
     serializedVersion: 2
     m_Bits: 1792
-  projectileSpeed: 100
+  projectileSpeed: 20
 --- !u!65 &6372626967418941374
 BoxCollider:
   m_ObjectHideFlags: 0

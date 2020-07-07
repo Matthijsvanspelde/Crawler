@@ -58,7 +58,7 @@ public class EquipmentManager : MonoBehaviour
                 //unequip old item in slot
                 UnEquipItem(equipmentSlots[(int)slot]);
                 //equip new item in current slot
-                AddEquipmentInSlot(equipment, slot);
+                StartCoroutine(AddEquipmentInSlot(equipment, slot));
                 return;
             }
         }
@@ -72,7 +72,7 @@ public class EquipmentManager : MonoBehaviour
             if (equipmentSlots[(int)slot] == null)
             {
                 //equip item in current slot
-                AddEquipmentInSlot(equipment, slot);
+                StartCoroutine(AddEquipmentInSlot(equipment, slot));
                 return true;
             }
         }
@@ -80,10 +80,11 @@ public class EquipmentManager : MonoBehaviour
         return false;
     }
 
-    private void AddEquipmentInSlot(Equipment equipment, InventorySlot slot)
+    private IEnumerator AddEquipmentInSlot(Equipment equipment, InventorySlot slot)
     {
+        equipment.SetCurrentSlot(slot);
         Equipment SpawnedEquipment = CallInventoryChangeCallBack(null, equipment);
-        
+        yield return null;
         if (SpawnedEquipment != null)
         {
             SpawnedEquipment.SetCurrentSlot(slot);
@@ -118,7 +119,7 @@ public class EquipmentManager : MonoBehaviour
 
     private Equipment CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
     {
-        return OnEquipmentChangeCallBack.Invoke(oldEquipment, newEquipment);
+        return OnEquipmentChangeCallBack.Invoke(oldEquipment,newEquipment);
     }
 
     public Equipment[] EquipmentSlots { get => equipmentSlots; }

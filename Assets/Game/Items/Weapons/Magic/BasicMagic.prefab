@@ -4766,8 +4766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa780bdbe35ba640aaffb5f932e0ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableSlots: 0400000005000000
-  prefabEquipment: {fileID: 2218316175816520682}
+  availableSlots: 0500000004000000
   baseStats:
     minAttackDamage:
       baseValue: 1
@@ -4798,6 +4797,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1957688347347038381}
     m_Modifications:
+    - target: {fileID: -8610318527042290721, guid: 1f10ac56b8c0d4647a46ffaa7a062e87,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1470843248361011283, guid: 1f10ac56b8c0d4647a46ffaa7a062e87,
         type: 3}
       propertyPath: m_LocalPosition.x

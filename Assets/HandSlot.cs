@@ -7,7 +7,7 @@ public class HandSlot : MonoBehaviour
 {
     [SerializeField] private InventorySlot slotSide = InventorySlot.LEFTHAND;
 
-    private void Start()
+    private void Awake()
     {
         EquipmentManager.instance.OnEquipmentChangeCallBack += ShowEquipment;
     }

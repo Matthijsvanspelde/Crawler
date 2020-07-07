@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Weapon : Equipment
 {
+    [Header("Basic weapon stats")]
     [SerializeField] private WeaponStats baseStats;
 
     [HideInInspector]
