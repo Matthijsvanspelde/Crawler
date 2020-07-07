@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool explodeOnImpact;
     [SerializeField] private float explosionRadius;
     [SerializeField] private ParticleSystem explosionGraphics;
+    [SerializeField] private LayerMask CanHit;
     [Header("Projectile")]
     [SerializeField] private float projectileSpeed;
 
@@ -42,11 +43,16 @@ public class Projectile : MonoBehaviour
             ExplodeProjectile();
         }
 
-        if (!other.CompareTag("Player") && !other.CompareTag("Untagged"))
+        if (Contains(CanHit,other.gameObject.layer))
         {
-            //Destroy bullet
+            //Destroy projectile
             DestroySelf();
         }
+    }
+
+    private bool Contains(LayerMask mask, int layer)
+    {
+        return mask == (mask | (1 << layer));
     }
 
     private void DestroySelf()

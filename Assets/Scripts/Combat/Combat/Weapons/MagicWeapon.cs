@@ -21,7 +21,7 @@ public class MagicWeapon : Weapon
 
             if (IsProjectile)
             {
-                HandleProjectile();
+                StartCoroutine(HandleProjectile());
             }
             else if (IsSelfTargeting)
             {
@@ -30,8 +30,9 @@ public class MagicWeapon : Weapon
         }
     }
 
-    private void HandleProjectile()
+    IEnumerator HandleProjectile()
     {
+        yield return new WaitForSeconds(Stats.StartupSpeed.GetValue());
         Projectile projectileToFire = Instantiate(spellProjectile);
 
         projectileToFire.transform.position = pointToHitFrom.position;

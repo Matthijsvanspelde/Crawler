@@ -28,7 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1110107129570043435}
+  - {fileID: 5070449055132237929}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,21 +47,21 @@ MonoBehaviour:
   availableSlots: 
   baseStats:
     minAttackDamage:
-      baseValue: 0
+      baseValue: 1
     maxAttackDamage:
-      baseValue: 0
+      baseValue: 3
     attackRange:
-      baseValue: 0
+      baseValue: 20
     attackSpeed:
-      baseValue: 0
+      baseValue: 1
     startupSpeed:
-      baseValue: 0
+      baseValue: 0.2
     staminaCost:
       baseValue: 0
   pointToHitFrom: {fileID: 0}
   CanHit:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1792
 --- !u!1001 &1949663543442824824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,9 +131,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f10ac56b8c0d4647a46ffaa7a062e87, type: 3}
---- !u!4 &1110107129570043435 stripped
+--- !u!4 &5070449055132237929 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1470843248361011283, guid: 1f10ac56b8c0d4647a46ffaa7a062e87,
+  m_CorrespondingSourceObject: {fileID: -2498580643111297519, guid: 1f10ac56b8c0d4647a46ffaa7a062e87,
     type: 3}
   m_PrefabInstance: {fileID: 1949663543442824824}
   m_PrefabAsset: {fileID: 0}

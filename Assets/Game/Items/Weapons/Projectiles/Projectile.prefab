@@ -48,6 +48,9 @@ MonoBehaviour:
   explodeOnImpact: 0
   explosionRadius: 2
   explosionGraphics: {fileID: 0}
+  CanHit:
+    serializedVersion: 2
+    m_Bits: 1792
   projectileSpeed: 100
 --- !u!65 &6372626967418941374
 BoxCollider:
