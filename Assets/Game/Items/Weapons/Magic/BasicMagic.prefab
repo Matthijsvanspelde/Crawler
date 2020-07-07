@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1957688347347038381}
   - component: {fileID: 3635747727928957318}
   m_Layer: 0
-  m_Name: Magic
+  m_Name: BasicMagic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476851f9777c3b24ca50049146102000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
+  availableSlots: 
+  baseStats:
     minAttackDamage:
       baseValue: 0
     maxAttackDamage:
@@ -57,6 +58,10 @@ MonoBehaviour:
       baseValue: 0
     staminaCost:
       baseValue: 0
+  pointToHitFrom: {fileID: 0}
+  CanHit:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1949663543442824824
 PrefabInstance:
   m_ObjectHideFlags: 0

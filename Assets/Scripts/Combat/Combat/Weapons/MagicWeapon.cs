@@ -7,9 +7,46 @@ public class MagicWeapon : Weapon
     [Header("Mana")]
     [SerializeField] private bool hasManaCost;
     [SerializeField] private int maxManaCost = 10;
-    [Header("Props")]
+    [Header("Projectile")]
     [SerializeField] private bool isProjectile;
+    [SerializeField] private Projectile spellProjectile;
+    [Header("SelfTargeting")]
     [SerializeField] private bool isSelfTargeting;
+
+    public override void HandleAttack()
+    {
+        if (CanAttack)
+        {
+            base.HandleAttack();
+
+            if (IsProjectile)
+            {
+                HandleProjectile();
+            }
+            else if (IsSelfTargeting)
+            {
+                HandleSelfTargeting();
+            }
+        }
+    }
+
+    private void HandleProjectile()
+    {
+        Projectile projectileToFire = Instantiate(spellProjectile);
+
+        projectileToFire.transform.position = pointToHitFrom.position;
+
+        Vector3 Forward = pointToHitFrom.position;
+        Forward += pointToHitFrom.forward * 2;
+        projectileToFire.transform.LookAt(Forward);
+
+        projectileToFire.FireProjectile(Stats.AttackRange.GetValue(),Stats.RandomDamage());
+    }
+
+    private void HandleSelfTargeting()
+    {
+
+    }
 
     public bool HasManaCost { get => hasManaCost; }
     public int MaxManaCost { get => maxManaCost; }
