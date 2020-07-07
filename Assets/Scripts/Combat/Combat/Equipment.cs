@@ -3,6 +3,7 @@
 public class Equipment : Item
 {
     [SerializeField] private InventorySlot[] availableSlots;
+    [SerializeField] private GameObject prefabEquipment;
 
     private InventorySlot currentSlot;
 
@@ -22,5 +23,5 @@ public class Equipment : Item
     }
 
     public InventorySlot[] GetAllAvailableSlots { get => availableSlots; }
-
+    public GameObject PrefabEquipment { get => prefabEquipment; }
 }

@@ -16,17 +16,36 @@ public class EquipmentManager : MonoBehaviour
 
     #endregion
 
-    public delegate void OnEquipmentChange(Equipment oldEquipment, Equipment newEquipment);
-    OnEquipmentChange OnEquipmentChangeCallBack;
+    public delegate Equipment OnEquipmentChange(Equipment oldEquipment, Equipment newEquipment);
 
-    private Equipment[] equipmentSlots = new Equipment[5];
+    public OnEquipmentChange OnEquipmentChangeCallBack;
+
+    [SerializeField] private List<Equipment> startingEquipment = new List<Equipment>();
+
+    private Equipment[] equipmentSlots = new Equipment[6];
+
+    private void Start()
+    {
+        foreach (Equipment equipment in startingEquipment)
+        {
+            EquipEquipment(equipment);
+        }
+    }
+
+    public Equipment GetEquipmentFromSlot(InventorySlot slotToGet)
+    {
+        return equipmentSlots[(int)slotToGet];
+    }
 
     public void EquipEquipment(Equipment equipment)
     {
-        if (CheckForEmptySlot(equipment))
-            return;
+        if (equipment != null)
+        {
+            if (CheckForEmptySlot(equipment))
+                return;
 
-        SwapEquipmentInSlot(equipment);
+            SwapEquipmentInSlot(equipment);
+        }
     }
 
     private void SwapEquipmentInSlot(Equipment equipment)
@@ -63,10 +82,14 @@ public class EquipmentManager : MonoBehaviour
 
     private void AddEquipmentInSlot(Equipment equipment, InventorySlot slot)
     {
-        equipment.SetCurrentSlot(slot);
-        equipmentSlots[(int)slot] = equipment;
-        Inventory.instance.InventoryList.Remove(equipment);
-        CallInventoryChangeCallBack(null, equipment);
+        Equipment SpawnedEquipment = CallInventoryChangeCallBack(null, equipment);
+        
+        if (SpawnedEquipment != null)
+        {
+            SpawnedEquipment.SetCurrentSlot(slot);
+            equipmentSlots[(int)slot] = SpawnedEquipment;
+            Inventory.instance.InventoryList.Remove(SpawnedEquipment);
+        }
     }
 
     public void UnEquipItem(Equipment slotToClear)
@@ -93,11 +116,12 @@ public class EquipmentManager : MonoBehaviour
         CallInventoryChangeCallBack(oldEquipment, null);
     }
 
-    private void CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
+    private Equipment CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
     {
-        OnEquipmentChangeCallBack.Invoke(oldEquipment, newEquipment);
+        return OnEquipmentChangeCallBack.Invoke(oldEquipment, newEquipment);
     }
 
+    public Equipment[] EquipmentSlots { get => equipmentSlots; }
 }
 
 public enum InventorySlot { HEAD, BODY, ARMS, LEGS, LEFTHAND, RIGHTHAND, NONE }

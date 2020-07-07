@@ -18,10 +18,9 @@ public class MagicWeapon : Weapon
         if (CanAttack)
         {
             base.HandleAttack();
-
             if (IsProjectile)
             {
-                StartCoroutine(HandleProjectile());
+                this.StartCoroutine(HandleProjectile());
             }
             else if (IsSelfTargeting)
             {

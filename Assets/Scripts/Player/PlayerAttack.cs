@@ -9,34 +9,34 @@ public class PlayerAttack : MonoBehaviour
     private Animator rightHandAnim;
     [SerializeField]
     private Animator leftHandAnim;
-    [Header("Weapons")]
-    [SerializeField]
-    private Weapon rightHandWeapon;
-    [SerializeField]
-    private Weapon leftHandWeapon;
-
+    
     private void Update()
     {
         //check input for attack
         if (Input.GetMouseButtonDown(1))
         {
-            //righthand attack
-            if (rightHandWeapon.CanAttack)
-            {
-                rightHandAnim.SetTrigger("Attack");
-            }
-
-            rightHandWeapon.HandleAttack();
+            rightHandAnim.SetTrigger("Attack");
+            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.RIGHTHAND));
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            //lefthand attack
-            if (leftHandWeapon.CanAttack)
-            {
-                leftHandAnim.SetTrigger("Attack");
-            }
+            leftHandAnim.SetTrigger("Attack");
+            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.LEFTHAND));
+        }
+    }
 
-            leftHandWeapon.HandleAttack();
+    private void DoAttack(Equipment equipment)
+    {
+        Weapon weaponToAttackWith = null;
+
+        try
+        {
+            weaponToAttackWith = (Weapon)equipment;
+            weaponToAttackWith.HandleAttack();
+        }
+        catch (System.Exception)
+        {
+            return;
         }
     }
 }

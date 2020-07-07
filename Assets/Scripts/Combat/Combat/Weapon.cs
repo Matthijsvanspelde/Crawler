@@ -5,10 +5,18 @@ using UnityEngine.UI;
 public class Weapon : Equipment
 {
     [SerializeField] private WeaponStats baseStats;
+
+    [HideInInspector]
     public Transform pointToHitFrom;
+    [Header("Hittables")]
     public LayerMask CanHit;
 
     private float currentAttackSpeedTimer = 0f;
+
+    private void Awake()
+    {
+        pointToHitFrom = HitpointMover.instance.transform;
+    }
 
     public void OnDrawGizmosSelected()
     {
