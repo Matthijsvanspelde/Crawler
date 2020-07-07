@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - AttachmentPoint
   - Rooms
+  - Floor
+  - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX

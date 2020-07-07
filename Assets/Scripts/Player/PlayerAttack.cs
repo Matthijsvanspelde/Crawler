@@ -15,35 +15,28 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Weapon leftHandWeapon;
 
-    private CombatHandler leftCombatHandler;
-    private CombatHandler rightCombatHandler;
-
-    private void Awake()
-    {
-        rightCombatHandler = rightHandWeapon.GetComponentInParent<Transform>().GetComponentInParent<CombatHandler>();
-        leftCombatHandler = leftHandWeapon.GetComponentInParent<Transform>().GetComponentInParent<CombatHandler>();
-    }
-
     private void Update()
     {
         //check input for attack
         if (Input.GetMouseButtonDown(1))
         {
             //righthand attack
-            if (rightCombatHandler.CanAttack)
+            if (rightHandWeapon.CanAttack)
             {
                 rightHandAnim.SetTrigger("Attack");
             }
-            rightCombatHandler.HandleAttack(rightHandWeapon.Stats);
+
+            rightHandWeapon.HandleAttack();
         }
         else if (Input.GetMouseButtonDown(0))
         {
             //lefthand attack
-            if (leftCombatHandler.CanAttack)
+            if (leftHandWeapon.CanAttack)
             {
                 leftHandAnim.SetTrigger("Attack");
             }
-            leftCombatHandler.HandleAttack(leftHandWeapon.Stats);
+
+            leftHandWeapon.HandleAttack();
         }
     }
 }
