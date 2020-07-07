@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Equipment
 {
-    [SerializeField] private WeaponStats stats;
-    [SerializeField] private Transform hitPoint;
+    [SerializeField] private WeaponStats baseStats;
 
     public void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(hitPoint.position, stats.AttackRange);
+        Gizmos.DrawWireSphere(transform.position, baseStats.AttackRange.GetValue());
     }
 
-    public WeaponStats Stats { get => stats;}
+    public WeaponStats Stats { get => baseStats;}
 }

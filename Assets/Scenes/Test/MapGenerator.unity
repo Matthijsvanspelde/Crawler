@@ -220,6 +220,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 20879766342118203, guid: 484d5f377002b4d43af61cfbaa08baef,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 130a806dd98c16a40861a735ee43a7f4,
+        type: 2}
+    - target: {fileID: 6068504100788748653, guid: 484d5f377002b4d43af61cfbaa08baef,
+        type: 3}
+      propertyPath: CanHit.m_Bits
+      value: 1792
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608770538504458791, guid: 484d5f377002b4d43af61cfbaa08baef,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: fc643dd968a34e343a4dc72eb74a6d75,
+        type: 2}
     - target: {fileID: 8345955463056847265, guid: 484d5f377002b4d43af61cfbaa08baef,
         type: 3}
       propertyPath: m_Name

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewPlayerStats", menuName = "Stats/PlayerStats")]
-public class PlayerStats : Stats
+public class PlayerStats : StatLine
 {
-    [SerializeField] private float maxMana;
-    [SerializeField] private float maxStamina;
+    [SerializeField] private Stat maxMana;
+    [SerializeField] private Stat maxStamina;
 
-    public float MaxMana { get => maxMana; }
-    public float MaxStamina { get => maxStamina; }
+    public Stat MaxMana { get => maxMana; }
+    public Stat MaxStamina { get => maxStamina; }
 }

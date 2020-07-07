@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMeleeWeapon", menuName = "WeaponStats/MeleeWeapon")]
-public class MeleeWeapon : WeaponStats
+public class MeleeWeapon : Weapon
 {
 
 }

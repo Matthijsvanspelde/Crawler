@@ -10,8 +10,11 @@ public class LookForPlayer : AIState
     [SerializeField] private UnityEvent PlayerSpotted = new UnityEvent();
     [Range(1,360)]
     [SerializeField] private float ViewAngle = 70;
+    [Range(1, 360)]
+    [SerializeField] private float detectionRadius = 10;
+
     private SphereCollider triggerCollider;
-    private EnemyStats enemyStats;
+    
 
     private bool lookForPlayer = false;
 
@@ -44,7 +47,7 @@ public class LookForPlayer : AIState
     {
         Ray ray = new Ray(transform.position, playerPos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, enemyStats.DetectionRadius))
+        if (Physics.Raycast(ray, out hit, detectionRadius))
         {
             Debug.DrawRay(transform.position, playerPos, Color.green, 5f);
 
@@ -65,18 +68,15 @@ public class LookForPlayer : AIState
 
     private void SetTrigger()
     {
-        enemyStats = (EnemyStats)Stats.Stats;
         triggerCollider = GetComponent<SphereCollider>();
         triggerCollider.isTrigger = true;
-        triggerCollider.radius = enemyStats.DetectionRadius;
+        triggerCollider.radius = detectionRadius;
     }
 
     private void OnDrawGizmos()
     {
-        if (enemyStats != null)
-        {
             float totalFOV = ViewAngle;
-            float rayRange = enemyStats.DetectionRadius;
+            float rayRange = detectionRadius;
             float halfFOV = totalFOV / 2.0f;
             Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
             Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
@@ -84,6 +84,6 @@ public class LookForPlayer : AIState
             Vector3 rightRayDirection = rightRayRotation * transform.forward;
             Gizmos.DrawRay(transform.position, leftRayDirection * rayRange) ;
             Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
-        }
+            //Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

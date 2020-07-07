@@ -30,7 +30,7 @@ public class CombatHandler : MonoBehaviour
         {
             currentAttackSpeedTimer += Time.deltaTime;
 
-            if (currentAttackSpeedTimer >= weaponStats.AttackSpeed)
+            if (currentAttackSpeedTimer >= weaponStats.AttackSpeed.GetValue())
             {
                 currentAttackSpeedTimer = 0f;
                 CanAttack = true;
@@ -43,7 +43,7 @@ public class CombatHandler : MonoBehaviour
 
     IEnumerator DoAttack()
     {
-        yield return new WaitForSeconds(weaponStats.StartupSpeed);
+        yield return new WaitForSeconds(weaponStats.StartupSpeed.GetValue());
         RaycastHit hit = GetRayCastHit();
 
         if (hit.collider != null && !hit.collider.isTrigger)
@@ -52,6 +52,8 @@ public class CombatHandler : MonoBehaviour
             Debug.DrawLine(pointToHitFrom.position, hit.point, Color.red, 2f);
             HandleHit(hit);
         }
+        
+        weaponStats.HandleWeapon();
     }
 
     #endregion
@@ -60,12 +62,12 @@ public class CombatHandler : MonoBehaviour
 
     private void HandleHit(RaycastHit hit)
     {
-        StatHolder HitStatHolder =  hit.collider.GetComponent<StatHolder>();
+        StatLine HitStatHolder =  hit.collider.GetComponent<StatLine>();
 
         //Make sure we did not hit something NoneHitable
         if (HitStatHolder != null)
         {
-            HitStatHolder.TakeDamage(weaponStats.RandomDamage());
+            HitStatHolder.TakeDamage(Mathf.RoundToInt(weaponStats.RandomDamage()));
         }
     }
 
@@ -74,7 +76,7 @@ public class CombatHandler : MonoBehaviour
         Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, weaponStats.AttackRange, CanHit))
+        if (Physics.Raycast(ray, out hit, weaponStats.AttackRange.GetValue(), CanHit))
         {
             return hit;
         }
