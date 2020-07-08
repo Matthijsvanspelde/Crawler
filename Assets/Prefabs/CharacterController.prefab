@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389d29a99e642344cabcd8092f644c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingEquipment: []
+  startingEquipment:
+  - {fileID: 7386819285246660765, guid: 73078f6b128ebef4d836f70564b7a43b, type: 3}
 --- !u!1 &1206666650746986623
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +103,7 @@ GameObject:
   - component: {fileID: 5847458514770743504}
   - component: {fileID: 4889603005380226395}
   - component: {fileID: 6068504100788748653}
+  - component: {fileID: 1015876495}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -206,6 +208,24 @@ MonoBehaviour:
   CanHit:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &1015876495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206666650746986623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6a0addc5a862443b93ef049f22976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTrigger: Attack
+  damagedTrigger: 
+  shootingTrigger: 
+  walkingTrigger: 
+  idleTrigger: 
+  deathTrigger: 
 --- !u!1 &3126356530412670335
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4817392624391037007}
+  - component: {fileID: 958990575}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -236,6 +257,19 @@ Transform:
   m_Father: {fileID: 7898580621193764837}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958990575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126356530412670335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502b28a26c010b44180d0e71aa1fe04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotSide: 4
 --- !u!1 &3189563279349929363
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8473175227757512905}
+  - component: {fileID: 2085204215}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -402,6 +437,19 @@ Transform:
   m_Father: {fileID: 2071842829230020621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2085204215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507655380386302890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502b28a26c010b44180d0e71aa1fe04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotSide: 5
 --- !u!1 &7321328354897686189
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +462,7 @@ GameObject:
   - component: {fileID: 3730537840849831477}
   - component: {fileID: 2318835399199712408}
   - component: {fileID: 1945356004827338750}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CrossHairCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +560,7 @@ GameObject:
   - component: {fileID: 4210602298277443375}
   - component: {fileID: 3600594041952623492}
   - component: {fileID: 1213567718402675730}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,6 +634,7 @@ GameObject:
   - component: {fileID: 8345955461859781026}
   - component: {fileID: 8345955461859781028}
   - component: {fileID: 8345955461859781027}
+  - component: {fileID: 1334057643}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -672,6 +721,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8345955461859781024}
   m_Enabled: 1
+--- !u!114 &1334057643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345955461859781024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &8345955462109518487
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +763,7 @@ GameObject:
   - component: {fileID: 8345955462109518486}
   - component: {fileID: 8345955462109518488}
   - component: {fileID: 8345955462109518489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,9 +873,10 @@ GameObject:
   - component: {fileID: 8345955463056847264}
   - component: {fileID: 8345955463056847267}
   - component: {fileID: 3590758530018593344}
-  m_Layer: 0
+  - component: {fileID: 1419396593587635961}
+  m_Layer: 11
   m_Name: CharacterController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -874,6 +955,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56196036f9daae4db6400bbc854b6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1419396593587635961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345955463056847265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d5963b2f2b906499a3ff029297b141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: {fileID: 4755277504942253167}
+  maxHealth:
+    baseValue: 10
+  armour:
+    baseValue: 1
+  maxMana:
+    baseValue: 10
+  maxStamina:
+    baseValue: 10
 --- !u!1 &8824069794586864414
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,4 +1019,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369bd7c6d30fd8345b2f3b9c327d3377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 8345955461859781026}
+  pointToFollow: {fileID: 8345955461859781029}

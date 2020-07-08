@@ -9,7 +9,7 @@ public class HandSlot : MonoBehaviour
 
     private void Awake()
     {
-        EquipmentManager.instance.OnEquipmentChangeCallBack += ShowEquipment;
+        EquipmentManager.instance.OnEquipmentChangeSetupCallBack += ShowEquipment;
     }
 
     private Equipment ShowEquipment(Equipment oldEquipment, Equipment newEquipment)

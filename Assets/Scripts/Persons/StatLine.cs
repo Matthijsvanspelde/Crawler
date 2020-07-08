@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class StatLine : MonoBehaviour
 {
+    [Header("HitPoint")]
+    [SerializeField] private Transform hitPoint;
+    [Header("Stats")]
     [SerializeField] private Stat maxHealth;
     [SerializeField] private Stat armour;
 
@@ -36,4 +39,5 @@ public class StatLine : MonoBehaviour
         Debug.Log(transform.name + " died.");
     }
     public Stat MaxHealth { get => maxHealth; }
+    public Transform HitPoint { get => hitPoint; }
 }

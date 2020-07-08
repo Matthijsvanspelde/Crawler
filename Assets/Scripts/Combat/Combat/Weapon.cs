@@ -13,14 +13,18 @@ public class Weapon : Equipment
     [Header("Hittables")]
     public LayerMask CanHit;
 
-    [HideInInspector]
+    [Header("HitPoint")]
     public Transform pointToHitFrom;
 
     private float currentAttackSpeedTimer = 0f;
+    //TODO: set statline
 
     private void Awake()
     {
-        pointToHitFrom = HitpointMover.instance.transform;
+        if (pointToHitFrom == null)
+        {
+            pointToHitFrom = HitpointMover.instance.transform;
+        }
     }
 
     public void OnDrawGizmosSelected()

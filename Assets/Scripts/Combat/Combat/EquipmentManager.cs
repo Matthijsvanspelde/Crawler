@@ -16,9 +16,9 @@ public class EquipmentManager : MonoBehaviour
 
     #endregion
 
-    public delegate Equipment OnEquipmentChange(Equipment oldEquipment, Equipment newEquipment);
+    public delegate Equipment OnEquipmentChangeSetup(Equipment oldEquipment, Equipment newEquipment);
 
-    public OnEquipmentChange OnEquipmentChangeCallBack;
+    public OnEquipmentChangeSetup OnEquipmentChangeSetupCallBack;
 
     [SerializeField] private List<Equipment> startingEquipment = new List<Equipment>();
 
@@ -119,7 +119,7 @@ public class EquipmentManager : MonoBehaviour
 
     private Equipment CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
     {
-        return OnEquipmentChangeCallBack.Invoke(oldEquipment,newEquipment);
+        return OnEquipmentChangeSetupCallBack.Invoke(oldEquipment,newEquipment);
     }
 
     public Equipment[] EquipmentSlots { get => equipmentSlots; }

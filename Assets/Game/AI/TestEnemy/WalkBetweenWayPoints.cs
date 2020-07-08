@@ -34,49 +34,38 @@ public class WalkBetweenWayPoints : AIState
 
     private IEnumerator MoveToWayPoint(NavMeshAgent agent)
     {
-        if (!ResolveInRandomOrder)
+
+        foreach (Transform wayPoint in WayPoints)
         {
-            foreach (Transform wayPoint in WayPoints)
+            if (!ResolveInRandomOrder)
             {
                 agent.destination = wayPoint.position;
-
-                yield return new WaitForSeconds(0.5f);
-
-                while (agent.hasPath)
-                {
-                    yield return null;
-                }
-
-                setIdleAnimation();
-                yield return new WaitForSeconds(WaitTimeAtPoint);
-                setWalkingAnimation();
             }
-        }
-        else
-        {
+            else
+            {
+                agent.destination = WayPoints[Random.Range(0, WayPoints.Count)].transform.position;
+            }
 
-            agent.destination = WayPoints[Random.Range(0, WayPoints.Count)].transform.position;
+            yield return new WaitForSeconds(0.5f);
 
-                yield return new WaitForSeconds(0.5f);
+            while (agent.hasPath)
+            {
+                yield return null;
+            }
 
-                while (agent.hasPath)
-                {
-                    yield return null;
-                }
+            setIdleAnimation();
+            yield return new WaitForSeconds(WaitTimeAtPoint);
+            setWalkingAnimation();
 
-                setIdleAnimation();
-                yield return new WaitForSeconds(WaitTimeAtPoint);
-                setWalkingAnimation();
-        }
-
-        if (LoopPath)
-        {
-            currentIndex = 0;
-            HandleState(agent);
-        }
-        else
-        {
-            Done = true;
+            if (LoopPath)
+            {
+                currentIndex = 0;
+                HandleState(agent);
+            }
+            else
+            {
+                Done = true;
+            }
         }
     }
 
@@ -94,6 +83,7 @@ public class WalkBetweenWayPoints : AIState
 
     public override void EndState(NavMeshAgent agent)
     {
-
+        base.EndState(agent);
+        StopAllCoroutines();
     }
 }
