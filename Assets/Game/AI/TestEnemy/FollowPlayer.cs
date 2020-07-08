@@ -8,6 +8,7 @@ public class FollowPlayer : AIState
     public UnityEvent InAttackRange = new UnityEvent();
     Transform player;
     private EnemyStats enemyStats;
+    private bool firstime = true;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class FollowPlayer : AIState
         while (agent.hasPath)
         {
             SetAgentDestination(agent);
+            SetAnimation();
             yield return new WaitForSeconds(Time.deltaTime);
             //TODO: Check if we are in attack range of player
             if (Vector3.Distance(player.transform.position, agent.transform.position) <= enemyStats.EnemyWeapon.Stats.AttackRange.GetValue())
@@ -39,6 +41,16 @@ public class FollowPlayer : AIState
                 Done = true;
                 StopAllCoroutines();
             }
+        }
+    }
+
+    private void SetAnimation()
+    {
+        if (firstime)
+        {
+            enemyStats.Animator.SetWalkingBool(true);
+            enemyStats.Animator.SetIdleBool(false);
+            firstime = false;
         }
     }
 

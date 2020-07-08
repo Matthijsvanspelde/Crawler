@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 5477294757420260133, guid: 484d5f377002b4d43af61cfbaa08baef,
         type: 3}
       propertyPath: startingEquipment.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5477294757420260133, guid: 484d5f377002b4d43af61cfbaa08baef,
         type: 3}

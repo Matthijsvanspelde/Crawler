@@ -34,20 +34,39 @@ public class WalkBetweenWayPoints : AIState
 
     private IEnumerator MoveToWayPoint(NavMeshAgent agent)
     {
-        foreach (Transform wayPoint in WayPoints)
+        if (!ResolveInRandomOrder)
         {
-            agent.destination = wayPoint.position;
-
-            yield return new WaitForSeconds(0.5f);
-
-            while (agent.hasPath)
+            foreach (Transform wayPoint in WayPoints)
             {
-                yield return null;
-            }
+                agent.destination = wayPoint.position;
 
-            setIdleAnimation();
-            yield return new WaitForSeconds(WaitTimeAtPoint);
-            setWalkingAnimation();
+                yield return new WaitForSeconds(0.5f);
+
+                while (agent.hasPath)
+                {
+                    yield return null;
+                }
+
+                setIdleAnimation();
+                yield return new WaitForSeconds(WaitTimeAtPoint);
+                setWalkingAnimation();
+            }
+        }
+        else
+        {
+
+            agent.destination = WayPoints[Random.Range(0, WayPoints.Count)].transform.position;
+
+                yield return new WaitForSeconds(0.5f);
+
+                while (agent.hasPath)
+                {
+                    yield return null;
+                }
+
+                setIdleAnimation();
+                yield return new WaitForSeconds(WaitTimeAtPoint);
+                setWalkingAnimation();
         }
 
         if (LoopPath)
@@ -63,16 +82,14 @@ public class WalkBetweenWayPoints : AIState
 
     private void setIdleAnimation()
     {
-        enemyStats.Animator.SetIdleTrigger();
         enemyStats.Animator.SetWalkingBool(false);
         enemyStats.Animator.SetIdleBool(true);
     }
 
     private void setWalkingAnimation()
     {
-        enemyStats.Animator.SetWalkingTrigger();
-        enemyStats.Animator.SetWalkingBool(true);
         enemyStats.Animator.SetIdleBool(false);
+        enemyStats.Animator.SetWalkingBool(true);
     }
 
     public override void EndState(NavMeshAgent agent)
