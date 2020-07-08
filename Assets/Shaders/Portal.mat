@@ -34,7 +34,7 @@ Material:
     - Vector1_40E684CF: 0.25
     - Vector1_A6998AC0: 3
     m_Colors:
-    - Color_EFD58531: {r: 2.4752266, g: 0.86775213, b: 3.4710085, a: 0}
+    - Color_EFD58531: {r: 2.5427182, g: 0.7580775, b: 3.0165167, a: 0}
 --- !u!114 &2737432623173789091
 MonoBehaviour:
   m_ObjectHideFlags: 11
