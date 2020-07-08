@@ -325,7 +325,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1996949804}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1015876490
+--- !u!114 &1015876495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,6 +441,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1996949804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1809768359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8345955463056847265, guid: 484d5f377002b4d43af61cfbaa08baef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1996949804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809768360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809768359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d5963b2f2b906499a3ff029297b141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 10
+  armour:
+    baseValue: 1
+  maxMana:
+    baseValue: 10
+  maxStamina:
+    baseValue: 10
 --- !u!1001 &1996949804
 PrefabInstance:
   m_ObjectHideFlags: 0
