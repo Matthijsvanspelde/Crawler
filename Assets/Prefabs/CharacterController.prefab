@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 5113775213480500922}
   - component: {fileID: 7952709070993436998}
   - component: {fileID: 455048178}
+  - component: {fileID: 6346580066800936982}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -353,6 +354,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6346580066800936982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189563279349929363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6a0addc5a862443b93ef049f22976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTrigger: Attack
+  damagedTrigger: 
+  shootingTrigger: 
+  walkingTrigger: 
+  idleTrigger: 
+  deathTrigger: 
 --- !u!1 &6507655380386302890
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +793,6 @@ GameObject:
   - component: {fileID: 8345955463056847264}
   - component: {fileID: 8345955463056847267}
   - component: {fileID: 3590758530018593344}
-  - component: {fileID: 7373616082790057433}
   m_Layer: 0
   m_Name: CharacterController
   m_TagString: Untagged
@@ -843,6 +861,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  animator: {fileID: 0}
 --- !u!114 &3590758530018593344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,21 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56196036f9daae4db6400bbc854b6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandAnim: {fileID: 4889603005380226395}
-  leftHandAnim: {fileID: 455048178}
---- !u!114 &7373616082790057433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8345955463056847265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6504a1515aba5bb43be617b076ebae22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 024c486e68f3de647a8749601eece94c, type: 2}
 --- !u!1 &8824069794586864414
 GameObject:
   m_ObjectHideFlags: 0

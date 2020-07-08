@@ -12,6 +12,7 @@ public class WalkBetweenWayPoints : AIState
     [SerializeField] private float WaitTimeAtPoint;
 
     private int currentIndex = 0;
+    private EnemyStats enemyStats;
 
     public void SetWayPointLocations(List<Transform> waypointsToAdd)
     {
@@ -23,7 +24,7 @@ public class WalkBetweenWayPoints : AIState
 
     public override void AwakeState(NavMeshAgent agent)
     {
-
+        enemyStats = (EnemyStats)Stats;
     }
 
     public override void HandleState(NavMeshAgent agent)
@@ -33,19 +34,21 @@ public class WalkBetweenWayPoints : AIState
 
     private IEnumerator MoveToWayPoint(NavMeshAgent agent)
     {
-            foreach (Transform wayPoint in WayPoints)
+        foreach (Transform wayPoint in WayPoints)
+        {
+            agent.destination = wayPoint.position;
+
+            yield return new WaitForSeconds(0.5f);
+
+            while (agent.hasPath)
             {
-                agent.destination = wayPoint.position;
-
-                yield return new WaitForSeconds(0.5f);
-
-                while (agent.hasPath)
-                {
-                    yield return null;
-                }
-
-                yield return new WaitForSeconds(WaitTimeAtPoint);
+                yield return null;
             }
+
+            setIdleAnimation();
+            yield return new WaitForSeconds(WaitTimeAtPoint);
+            setWalkingAnimation();
+        }
 
         if (LoopPath)
         {
@@ -56,6 +59,20 @@ public class WalkBetweenWayPoints : AIState
         {
             Done = true;
         }
+    }
+
+    private void setIdleAnimation()
+    {
+        enemyStats.Animator.SetIdleTrigger();
+        enemyStats.Animator.SetWalkingBool(false);
+        enemyStats.Animator.SetIdleBool(true);
+    }
+
+    private void setWalkingAnimation()
+    {
+        enemyStats.Animator.SetWalkingTrigger();
+        enemyStats.Animator.SetWalkingBool(true);
+        enemyStats.Animator.SetIdleBool(false);
     }
 
     public override void EndState(NavMeshAgent agent)

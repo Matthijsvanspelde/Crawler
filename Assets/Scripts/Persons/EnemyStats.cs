@@ -6,8 +6,19 @@ using UnityEngine;
 public class EnemyStats : StatLine
 {
     [SerializeField] Mesh model;
+    [SerializeField] AnimationTriggerer animator;
 
 	[SerializeField] private float detectionRadius;
 
-	public float DetectionRadius { get => detectionRadius; set => detectionRadius = value; }
+	[SerializeField] private Weapon enemyWeapon;
+
+	public override void Die()
+	{
+		base.Die();
+		animator.SetDeathBool(true);
+	}
+
+	public float DetectionRadius { get => detectionRadius; }
+	public Weapon EnemyWeapon { get => enemyWeapon; }
+	public AnimationTriggerer Animator { get => animator; }
 }
