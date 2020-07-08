@@ -37,6 +37,7 @@ public class FollowPlayer : AIState
             {
                 InAttackRange.Invoke();
                 Done = true;
+                StopAllCoroutines();
             }
         }
     }
