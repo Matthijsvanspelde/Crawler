@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    #region Singleton
+    public static Movement instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+    #endregion
+
     public CharacterController controller;
 
     public float speed = 10;

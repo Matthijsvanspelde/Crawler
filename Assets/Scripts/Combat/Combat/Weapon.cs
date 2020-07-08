@@ -29,10 +29,11 @@ public class Weapon : Equipment
 
     }
 
-    public virtual void HandleAttack()
+    public virtual void HandleAttack(Animator attackAnimator)
     {
         if (CanAttack)
         {
+            attackAnimator.SetTrigger("Attack");
             StartCoroutine(AttackSpeedTimer());
         }
     }

@@ -15,24 +15,22 @@ public class PlayerAttack : MonoBehaviour
         //check input for attack
         if (Input.GetMouseButtonDown(1))
         {
-            rightHandAnim.SetTrigger("Attack");
-            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.RIGHTHAND));
+            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.RIGHTHAND), rightHandAnim);
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            leftHandAnim.SetTrigger("Attack");
-            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.LEFTHAND));
+            DoAttack(EquipmentManager.instance.GetEquipmentFromSlot(InventorySlot.LEFTHAND), leftHandAnim);
         }
     }
 
-    private void DoAttack(Equipment equipment)
+    private void DoAttack(Equipment equipment, Animator attackanimator)
     {
         Weapon weaponToAttackWith = null;
 
         try
         {
             weaponToAttackWith = (Weapon)equipment;
-            weaponToAttackWith.HandleAttack();
+            weaponToAttackWith.HandleAttack(attackanimator);
         }
         catch (System.Exception)
         {

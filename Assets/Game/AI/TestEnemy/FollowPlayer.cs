@@ -4,8 +4,13 @@ using UnityEngine.AI;
 
 public class FollowPlayer : AIState
 {
-    [SerializeField] Transform player;
-    
+    Transform player;
+
+    private void Awake()
+    {
+        player = Movement.instance.transform;
+    }
+
     public override void AwakeState(NavMeshAgent agent)
     {
 

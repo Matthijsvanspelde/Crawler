@@ -5,13 +5,21 @@ using UnityEngine.AI;
 
 public class WalkBetweenWayPoints : AIState
 {
-    [SerializeField]private List<Transform> WayPoints = new List<Transform>();
+    [SerializeField] private List<Transform> WayPoints = new List<Transform>();
     [SerializeField] private bool LoopPath = false;
     [SerializeField] private bool ResolveInRandomOrder = false;
     [Range(0.5f,10)]
     [SerializeField] private float WaitTimeAtPoint;
 
     private int currentIndex = 0;
+
+    public void SetWayPointLocations(List<Transform> waypointsToAdd)
+    {
+        foreach (Transform wayPoint in waypointsToAdd)
+        {
+            WayPoints.Add(wayPoint);
+        }
+    }
 
     public override void AwakeState(NavMeshAgent agent)
     {
@@ -54,6 +62,4 @@ public class WalkBetweenWayPoints : AIState
     {
 
     }
-
-    
 }

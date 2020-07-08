@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MeleeWeapon : Weapon
 {
-    public override void HandleAttack()
+    public override void HandleAttack(Animator AttackAnimator)
     {
         if (CanAttack)
         {
-            base.HandleAttack();
+            base.HandleAttack(AttackAnimator);
             StartCoroutine(DoAttack());
         }
     }

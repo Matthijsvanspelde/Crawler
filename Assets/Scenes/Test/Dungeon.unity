@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 43702982877312447, guid: d5e1829afb30c754997c256785a84811, type: 3}
   - {fileID: 8450273887171885653, guid: 8d186cbd5f761ad4798d0463791213c6, type: 3}
   - {fileID: 636918622407009623, guid: 10579087982cb6343befe845256e2c9b, type: 3}
+  - {fileID: 8473084342124321979, guid: 35b27791570e8b249b18b34497682212, type: 3}
   startTile: {fileID: 6273315517503328083, guid: 0b8fb8fd82097bd4fbc86c03b1bb341a,
     type: 3}
   xSize: 10
@@ -565,6 +566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CharacterController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345955463056847265, guid: 484d5f377002b4d43af61cfbaa08baef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8345955463056847269, guid: 484d5f377002b4d43af61cfbaa08baef,
         type: 3}
