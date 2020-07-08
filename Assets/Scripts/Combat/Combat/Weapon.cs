@@ -7,10 +7,14 @@ public class Weapon : Equipment
     [Header("Basic weapon stats")]
     [SerializeField] private WeaponStats baseStats;
 
-    [HideInInspector]
-    public Transform pointToHitFrom;
+    [Header("Animations")]
+    public AnimationTriggerer animator;
+
     [Header("Hittables")]
     public LayerMask CanHit;
+
+    [HideInInspector]
+    public Transform pointToHitFrom;
 
     private float currentAttackSpeedTimer = 0f;
 
@@ -29,13 +33,21 @@ public class Weapon : Equipment
 
     }
 
-    public virtual void HandleAttack(Animator attackAnimator)
+    public virtual void HandleAttack()
     {
         if (CanAttack)
         {
-            attackAnimator.SetTrigger("Attack");
+            if (animator == null)
+                SetAnimator();
+            
+            animator.SetCombatTrigger();
             StartCoroutine(AttackSpeedTimer());
         }
+    }
+
+    private void SetAnimator()
+    {
+        animator = GetComponentInParent<Transform>().GetComponentInParent<AnimationTriggerer>();
     }
 
     public IEnumerator AttackSpeedTimer()
