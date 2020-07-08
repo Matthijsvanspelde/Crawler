@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 2747075028386607104}
   m_Layer: 9
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,9 +117,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6105204199657288760}
   - component: {fileID: 5374745117861104124}
+  - component: {fileID: 6537870314511216902}
   m_Layer: 9
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,12 +147,33 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286457950938230727}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.4916755
   m_Height: 2.8836508
   m_Direction: 1
   m_Center: {x: 0, y: 0.41399455, z: 0.008324504}
+--- !u!114 &6537870314511216902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286457950938230727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387eec48cd3fffc428455902421d48a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: {fileID: 4944547428918324711}
+  maxHealth:
+    baseValue: 20
+  armour:
+    baseValue: 0
+  model: {fileID: 0}
+  animator: {fileID: 1597941920172121991}
+  detectionRadius: 4
+  enemyWeapon: {fileID: 743853336220022858}
 --- !u!1 &4563250418315318761
 GameObject:
   m_ObjectHideFlags: 0

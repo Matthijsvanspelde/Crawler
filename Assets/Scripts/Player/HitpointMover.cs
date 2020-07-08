@@ -20,7 +20,6 @@ public class HitpointMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = pointToFollow.transform.position;
         transform.rotation = pointToFollow.transform.rotation;
     }
 }

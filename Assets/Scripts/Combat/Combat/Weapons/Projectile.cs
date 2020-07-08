@@ -31,20 +31,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            //Do damage
-            StatLine enemy = other.GetComponent<StatLine>();
-            enemy.TakeDamage(Mathf.RoundToInt(damage));
-        }
-
         if (explodeOnImpact)
         {
             ExplodeProjectile();
         }
-
+        //TODO: Make enemy hittable
         if (Contains(CanHit,other.gameObject.layer))
         {
+            //Do damage
+            StatLine enemy = other.GetComponent<StatLine>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(Mathf.RoundToInt(damage));
+            }
             //Destroy projectile
             DestroySelf();
         }
