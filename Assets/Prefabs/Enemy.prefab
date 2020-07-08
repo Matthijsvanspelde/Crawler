@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   LoopPath: 1
+  ResolveInRandomOrder: 0
   WaitTimeAtPoint: 0.5
 --- !u!1 &854455447
 GameObject:
@@ -294,6 +295,8 @@ MonoBehaviour:
   PlayerSpotted:
     m_PersistentCalls:
       m_Calls: []
+  ViewAngle: 70
+  detectionRadius: 10
 --- !u!1 &4331829884685505709
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,4 +342,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Done: 0
   Stats: {fileID: 0}
-  player: {fileID: 0}
