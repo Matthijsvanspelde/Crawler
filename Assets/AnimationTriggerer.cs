@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AnimationTriggerer : MonoBehaviour
 {
-    [SerializeField] private string combatTrigger = "";
+    [SerializeField] private string attackTrigger = "";
     [SerializeField] private string damagedTrigger = "";
     [SerializeField] private string shootingTrigger = "";
     [SerializeField] private string walkingTrigger = "";
@@ -20,12 +20,12 @@ public class AnimationTriggerer : MonoBehaviour
     public void SetDeathBool(bool value) { animator.SetBool(deathTrigger, value); }
     public void SetShootingBool(bool value) { animator.SetBool(shootingTrigger, value); }
     public void SetWalkingBool(bool value) { animator.SetBool(walkingTrigger, value); }
-    public void SetCombatBool(bool value) { animator.SetBool(combatTrigger, value); }
+    public void SetCombatBool(bool value) { animator.SetBool(attackTrigger, value); }
     public void SetDamagedBool(bool value) { animator.SetBool(damagedTrigger, value); }
     public void SetIdleTrigger() { animator.SetTrigger(idleTrigger); }
     public void SetDeathTrigger() { animator.SetTrigger(deathTrigger); }
     public void SetShootingTrigger() { animator.SetTrigger(shootingTrigger); }
     public void SetWalkingTrigger() { animator.SetTrigger(walkingTrigger); }
-    public void SetCombatTrigger() { animator.SetTrigger(combatTrigger); }
+    public void SetCombatTrigger() { animator.SetTrigger(attackTrigger); }
     public void SetDamagedTrigger() { animator.SetTrigger(damagedTrigger); }
 }

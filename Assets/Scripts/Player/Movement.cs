@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     public float groundDistance = 0.6f;
     public LayerMask groundMask;
 
+    [SerializeField] private AnimationTriggerer animator;
+
     private Vector3 Velocity;
     private bool isGrounded;
 

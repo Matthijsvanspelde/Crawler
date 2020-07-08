@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPlayerStats", menuName = "Stats/PlayerStats")]
 public class PlayerStats : StatLine
 {
     [SerializeField] private Stat maxMana;

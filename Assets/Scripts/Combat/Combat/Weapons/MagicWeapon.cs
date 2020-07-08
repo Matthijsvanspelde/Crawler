@@ -13,11 +13,11 @@ public class MagicWeapon : Weapon
     [Header("SelfTargeting")]
     [SerializeField] private bool isSelfTargeting;
 
-    public override void HandleAttack(Animator attackAnimator)
+    public override void HandleAttack()
     {
         if (CanAttack)
         {
-            base.HandleAttack(attackAnimator);
+            base.HandleAttack();
             if (IsProjectile)
             {
                 this.StartCoroutine(HandleProjectile());

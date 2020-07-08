@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class FollowPlayer : AIState
 {
+    public UnityEvent InAttackRange = new UnityEvent();
     Transform player;
+    private EnemyStats enemyStats;
 
     private void Awake()
     {
@@ -13,7 +16,7 @@ public class FollowPlayer : AIState
 
     public override void AwakeState(NavMeshAgent agent)
     {
-
+        enemyStats = (EnemyStats)Stats;
     }
 
     public override void HandleState(NavMeshAgent agent)
@@ -30,6 +33,11 @@ public class FollowPlayer : AIState
             SetAgentDestination(agent);
             yield return new WaitForSeconds(Time.deltaTime);
             //TODO: Check if we are in attack range of player
+            if (Vector3.Distance(player.transform.position, agent.transform.position) <= enemyStats.EnemyWeapon.Stats.AttackRange.GetValue())
+            {
+                InAttackRange.Invoke();
+                Done = true;
+            }
         }
     }
 
