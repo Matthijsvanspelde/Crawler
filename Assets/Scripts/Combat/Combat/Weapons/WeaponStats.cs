@@ -30,5 +30,6 @@ public class WeaponStats
     public Stat StartupSpeed { get => startupSpeed;}
     public Stat StaminaCost { get => staminaCost;}
     public Stat MaxAttackDamage { get => maxAttackDamage; }
+
     public int RandomDamage() { return Mathf.RoundToInt(Random.Range(minAttackDamage.GetValue(), maxAttackDamage.GetValue())); }
 }

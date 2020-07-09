@@ -16,6 +16,7 @@ public class EnemyStats : StatLine
 	{
 		base.Die();
 		animator.SetDeathBool(true);
+		Destroy(GetComponentInParent<Transform>().gameObject);
 	}
 
 	public float DetectionRadius { get => detectionRadius; }

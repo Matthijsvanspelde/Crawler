@@ -17,7 +17,6 @@ public class MeleeWeapon : Weapon
     {
         yield return new WaitForSeconds(Stats.StartupSpeed.GetValue());
         RaycastHit hit = GetRayCastHit();
-
         if (hit.collider != null && !hit.collider.isTrigger)
         {
             //we hit something
@@ -43,12 +42,12 @@ public class MeleeWeapon : Weapon
     {
         Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
         RaycastHit hit;
-
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 10f);
         if (Physics.Raycast(ray, out hit, Stats.AttackRange.GetValue(), CanHit))
         {
             return hit;
         }
-
+ 
         return hit;
     }
 }

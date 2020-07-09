@@ -9,7 +9,7 @@ public class StateMachine : MonoBehaviour
     [SerializeField] public AIState defaultState = null;
 
     public NavMeshAgent agent;
-    [HideInInspector]
+    //[HideInInspector]
     public AIState currentState = null;
 
     // Start is called before the first frame update
@@ -48,8 +48,8 @@ public class StateMachine : MonoBehaviour
 
     private void CloseCurrentState()
     {
-        currentState.EndState(agent);
         currentState.Done = false;
+        currentState.EndState(agent);
     }
 
     private void NextState()

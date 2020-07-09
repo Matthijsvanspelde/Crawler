@@ -15,12 +15,11 @@ public class HitpointMover : MonoBehaviour
 
     #endregion
     
-    [SerializeField] private Camera cam;
+    [SerializeField] private Transform pointToFollow;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = cam.transform.position;
-        transform.rotation = cam.transform.rotation;
+        transform.rotation = pointToFollow.transform.rotation;
     }
 }

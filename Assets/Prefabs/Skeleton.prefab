@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140402191326771851}
   - component: {fileID: 7014785235960158193}
+  - component: {fileID: 2638983637988737692}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -24,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145805456197879960}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0.71364784, y: 1.9596878, z: 0.93858624}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 2503430141070515129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!95 &7014785235960158193
 Animator:
   serializedVersion: 3
@@ -51,6 +52,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2638983637988737692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145805456197879960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6a0addc5a862443b93ef049f22976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTrigger: Attacking
+  damagedTrigger: 
+  shootingTrigger: 
+  walkingTrigger: Walking
+  idleTrigger: Idle
+  deathTrigger: 
 --- !u!1001 &3366753692093755584
 PrefabInstance:
   m_ObjectHideFlags: 0
