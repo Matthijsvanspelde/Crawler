@@ -50,8 +50,8 @@ public class FollowPlayer : AIState
     {
         if (firstime)
         {
-            enemyStats.Animator.SetWalkingBool(true);
-            enemyStats.Animator.SetIdleBool(false);
+            enemyStats.animator.SetWalkingBool(true);
+            enemyStats.animator.SetIdleBool(false);
             firstime = false;
         }
     }

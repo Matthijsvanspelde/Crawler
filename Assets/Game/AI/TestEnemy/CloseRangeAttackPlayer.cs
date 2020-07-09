@@ -20,8 +20,8 @@ public class CloseRangeAttackPlayer : AIState
     {
         base.HandleState(agent);
         enemyStats.EnemyWeapon.HandleAttack();
-        enemyStats.Animator.SetIdleBool(true);
-        enemyStats.Animator.SetWalkingBool(false);
+        enemyStats.animator.SetIdleBool(true);
+        enemyStats.animator.SetWalkingBool(false);
         StartCoroutine(SetTrue());
     }
 

@@ -10,6 +10,8 @@ public class StatLine : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private Stat maxHealth;
     [SerializeField] private Stat armour;
+    [Header("Animator")]
+    public AnimationTriggerer animator;
 
     private int currentHealth;
 
@@ -25,7 +27,7 @@ public class StatLine : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth, 0, int.MaxValue);
         Debug.Log(transform.name + " takes " + damage + " damage.");
-
+        animator.SetDamagedTrigger();
         if (currentHealth == 0)
         {
             Die();
