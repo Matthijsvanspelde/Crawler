@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchWithHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.64
+      objectReference: {fileID: 0}
     - target: {fileID: 5309953684277738070, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TorchWithHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 5309953684277738070, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}

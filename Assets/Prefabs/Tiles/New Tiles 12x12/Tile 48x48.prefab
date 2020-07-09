@@ -308,7 +308,6 @@ MonoBehaviour:
   - {fileID: 7167230280919003604}
   - {fileID: 7167230281554493104}
   - {fileID: 7167230281067559163}
-  prefabObject: {fileID: 7167230282689521927}
   xPos: 0
   yPos: 0
   xSize: 0
@@ -812,6 +811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966951960638946968, guid: c0ce5c5ca57026f4da0d1c92f89d7d79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 7180744838946858441, guid: c0ce5c5ca57026f4da0d1c92f89d7d79,
         type: 3}
@@ -1937,6 +1941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966951960638946968, guid: c0ce5c5ca57026f4da0d1c92f89d7d79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 7180744838946858441, guid: c0ce5c5ca57026f4da0d1c92f89d7d79,
         type: 3}
