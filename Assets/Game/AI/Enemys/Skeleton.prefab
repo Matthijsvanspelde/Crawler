@@ -170,8 +170,8 @@ MonoBehaviour:
     baseValue: 20
   armour:
     baseValue: 0
-  model: {fileID: 0}
   animator: {fileID: 3846598315371847644}
+  model: {fileID: 0}
   detectionRadius: 4
   enemyWeapon: {fileID: 743853336220022858}
 --- !u!1 &4563250418315318761
@@ -281,8 +281,8 @@ MonoBehaviour:
     baseValue: 20
   armour:
     baseValue: 0
-  model: {fileID: 0}
   animator: {fileID: 3846598315371847644}
+  model: {fileID: 0}
   detectionRadius: 4
   enemyWeapon: {fileID: 743853336220022858}
 --- !u!1 &5112177740955491177
@@ -641,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 1140402191326771851, guid: fc0781dc554cd0242925786c280aaae2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1140402191326771851, guid: fc0781dc554cd0242925786c280aaae2,
         type: 3}
