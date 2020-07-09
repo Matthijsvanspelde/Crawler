@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140402191326771851}
   - component: {fileID: 7014785235960158193}
-  - component: {fileID: 2638983637988737692}
+  - component: {fileID: 6002853761735144472}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -52,7 +52,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2638983637988737692
+--- !u!114 &6002853761735144472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTrigger: Attacking
-  damagedTrigger: 
+  damagedTrigger: Damaged
   shootingTrigger: 
   walkingTrigger: Walking
   idleTrigger: Idle
