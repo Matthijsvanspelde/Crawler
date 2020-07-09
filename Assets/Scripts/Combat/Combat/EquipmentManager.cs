@@ -16,11 +16,12 @@ public class EquipmentManager : MonoBehaviour
 
     #endregion
 
-    public delegate Equipment OnEquipmentChangeSetup(Equipment oldEquipment, Equipment newEquipment);
+    public delegate void OnEquipmentChangeSetup(Equipment oldEquipment, Equipment newEquipment);
 
     public OnEquipmentChangeSetup OnEquipmentChangeSetupCallBack;
 
     [SerializeField] private List<Equipment> startingEquipment = new List<Equipment>();
+    [SerializeField] private List<HandSlot> HandSlots = new List<HandSlot>();
 
     private Equipment[] equipmentSlots = new Equipment[6];
 
@@ -83,14 +84,15 @@ public class EquipmentManager : MonoBehaviour
     private IEnumerator AddEquipmentInSlot(Equipment equipment, InventorySlot slot)
     {
         equipment.SetCurrentSlot(slot);
-        Equipment SpawnedEquipment = CallInventoryChangeCallBack(null, equipment);
-        yield return null;
+        Equipment SpawnedEquipment = ShowHandSlotGraphics(null, equipment);
         if (SpawnedEquipment != null)
         {
             SpawnedEquipment.SetCurrentSlot(slot);
             equipmentSlots[(int)slot] = SpawnedEquipment;
             Inventory.instance.InventoryList.Remove(SpawnedEquipment);
+            CallInventoryChangeCallBack(null, SpawnedEquipment);
         }
+        yield return null;
     }
 
     public void UnEquipItem(Equipment slotToClear)
@@ -117,9 +119,22 @@ public class EquipmentManager : MonoBehaviour
         CallInventoryChangeCallBack(oldEquipment, null);
     }
 
-    private Equipment CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
+    private Equipment ShowHandSlotGraphics(Equipment oldEquipment, Equipment newEquipment)
     {
-        return OnEquipmentChangeSetupCallBack.Invoke(oldEquipment,newEquipment);
+        foreach (HandSlot slot in HandSlots)
+        {
+            if (slot.SlotSide == newEquipment.GetCurrentSlot())
+            {
+                return slot.ShowEquipment(oldEquipment, newEquipment);
+            }
+        }
+
+        return null;
+    }
+
+    private void CallInventoryChangeCallBack(Equipment oldEquipment, Equipment newEquipment)
+    {
+        OnEquipmentChangeSetupCallBack.Invoke(oldEquipment,newEquipment);
     }
 
     public Equipment[] EquipmentSlots { get => equipmentSlots; }

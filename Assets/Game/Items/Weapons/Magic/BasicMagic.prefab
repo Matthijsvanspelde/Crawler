@@ -4780,10 +4780,11 @@ MonoBehaviour:
       baseValue: 0.3
     staminaCost:
       baseValue: 0
-  pointToHitFrom: {fileID: 1957688347347038381}
+  animator: {fileID: 0}
   CanHit:
     serializedVersion: 2
     m_Bits: 1792
+  pointToHitFrom: {fileID: 0}
   hasManaCost: 0
   maxManaCost: 10
   isProjectile: 1

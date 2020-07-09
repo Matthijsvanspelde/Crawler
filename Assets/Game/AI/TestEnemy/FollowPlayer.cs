@@ -31,14 +31,16 @@ public class FollowPlayer : AIState
 
         while (agent.hasPath || Done == false)
         {
-             SetAgentDestination(agent);
+            SetAgentDestination(agent);
             SetAnimation();
+
             yield return new WaitForSeconds(Time.deltaTime);
-            //TODO: Check if we are in attack range of player
+
             if (Vector3.Distance(player.transform.position, agent.transform.position) <= enemyStats.EnemyWeapon.Stats.AttackRange.GetValue())
             {
                 StopAllCoroutines();
                 firstime = true;
+                agent.isStopped = true;
                 InAttackRange.Invoke();
             }
         }

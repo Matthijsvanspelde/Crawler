@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
         {
             ExplodeProjectile();
         }
-        //TODO: Make enemy hittable
+
         if (Contains(CanHit,other.gameObject.layer))
         {
             //Do damage

@@ -33,6 +33,6 @@ public class CloseRangeAttackPlayer : AIState
 
     public override void EndState(NavMeshAgent agent)
     {
-        
+        agent.isStopped = false;
     }
 }

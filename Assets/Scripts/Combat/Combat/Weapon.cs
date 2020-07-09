@@ -17,7 +17,6 @@ public class Weapon : Equipment
     public Transform pointToHitFrom;
 
     private float currentAttackSpeedTimer = 0f;
-    //TODO: set statline
 
     private void Awake()
     {

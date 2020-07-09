@@ -34,39 +34,36 @@ public class WalkBetweenWayPoints : AIState
 
     private IEnumerator MoveToWayPoint(NavMeshAgent agent)
     {
-
-        foreach (Transform wayPoint in WayPoints)
+        while (!Done)
         {
-            if (!ResolveInRandomOrder)
+            foreach (Transform wayPoint in WayPoints)
             {
-                agent.destination = wayPoint.position;
-            }
-            else
-            {
-                agent.destination = WayPoints[Random.Range(0, WayPoints.Count)].transform.position;
+                if (!ResolveInRandomOrder)
+                {
+                    agent.destination = wayPoint.position;
+                }
+                else
+                {
+                    agent.destination = WayPoints[Random.Range(0, WayPoints.Count)].transform.position;
+                }
+
+                yield return new WaitForSeconds(0.5f);
+
+                while (agent.hasPath)
+                {
+                    yield return null;
+                }
+
+                setIdleAnimation();
+                yield return new WaitForSeconds(WaitTimeAtPoint);
+                setWalkingAnimation();
             }
 
-            yield return new WaitForSeconds(0.5f);
-
-            while (agent.hasPath)
-            {
-                yield return null;
-            }
-
-            setIdleAnimation();
-            yield return new WaitForSeconds(WaitTimeAtPoint);
-            setWalkingAnimation();
-
-            if (LoopPath)
-            {
-                currentIndex = 0;
-                HandleState(agent);
-            }
-            else
+            if (!LoopPath)
             {
                 Done = true;
             }
-        }
+        }    
     }
 
     private void setIdleAnimation()
