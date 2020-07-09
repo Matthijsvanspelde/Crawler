@@ -68,14 +68,14 @@ public class WalkBetweenWayPoints : AIState
 
     private void setIdleAnimation()
     {
-        enemyStats.Animator.SetWalkingBool(false);
-        enemyStats.Animator.SetIdleBool(true);
+        enemyStats.animator.SetWalkingBool(false);
+        enemyStats.animator.SetIdleBool(true);
     }
 
     private void setWalkingAnimation()
     {
-        enemyStats.Animator.SetIdleBool(false);
-        enemyStats.Animator.SetWalkingBool(true);
+        enemyStats.animator.SetIdleBool(false);
+        enemyStats.animator.SetWalkingBool(true);
     }
 
     public override void EndState(NavMeshAgent agent)

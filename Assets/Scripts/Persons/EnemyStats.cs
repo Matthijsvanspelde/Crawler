@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyStats : StatLine
 {
     [SerializeField] Mesh model;
-    [SerializeField] AnimationTriggerer animator;
 
 	[SerializeField] private float detectionRadius;
 
@@ -21,5 +20,4 @@ public class EnemyStats : StatLine
 
 	public float DetectionRadius { get => detectionRadius; }
 	public Weapon EnemyWeapon { get => enemyWeapon; }
-	public AnimationTriggerer Animator { get => animator; }
 }
