@@ -53,16 +53,17 @@ public class MeleeWeapon : Weapon
     {
         if (doAttack)
         {
+            doAttack = false;
             Vector3 rayEndPoint = other.transform.position - transform.position;
+            float distance = Vector3.Distance(other.transform.position, transform.position);
             float angle = Vector3.Angle(rayEndPoint, transform.forward);
-            if (angle < attackAngle - 30)
+            if (angle < attackAngle - 30 && distance < Stats.AttackRange.GetValue())
             {
                 if (IsHit(rayEndPoint))
                 {
                     HandleHit(other);
                 }
             }
-            doAttack = false;
         }
     }
 
@@ -90,19 +91,5 @@ public class MeleeWeapon : Weapon
         Vector3 rightRayDirection = rightRayRotation * transform.forward;
         Gizmos.DrawRay(transform.position, leftRayDirection * rayRange);
         Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
-        //Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
-
-    //private RaycastHit GetRayCastHit()
-    //{
-    //    Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
-    //    RaycastHit hit;
-    //    Debug.DrawRay(ray.origin, ray.direction, Color.blue, 10f);
-    //    if (Physics.Raycast(ray, out hit, Stats.AttackRange.GetValue(), CanHit))
-    //    {
-    //        return hit;
-    //    }
-
-    //    return hit;
-    //}
 }
