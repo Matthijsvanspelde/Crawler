@@ -47,15 +47,15 @@ MonoBehaviour:
   availableSlots: 0400000005000000
   baseStats:
     minAttackDamage:
-      baseValue: 0
+      baseValue: 1
     maxAttackDamage:
-      baseValue: 0
+      baseValue: 3
     attackRange:
-      baseValue: 0
+      baseValue: 20
     attackSpeed:
-      baseValue: 0
+      baseValue: 1
     startupSpeed:
-      baseValue: 0
+      baseValue: 0.5
     staminaCost:
       baseValue: 0
   animator: {fileID: 0}

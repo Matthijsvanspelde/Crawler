@@ -596,7 +596,7 @@ MonoBehaviour:
     maxAttackDamage:
       baseValue: 3
     attackRange:
-      baseValue: 2
+      baseValue: 5
     attackSpeed:
       baseValue: 1
     startupSpeed:
@@ -608,7 +608,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3328
   pointToHitFrom: {fileID: 4944547428918324711}
-  attackAngle: 73
+  attackAngle: 96
 --- !u!135 &5481956909848613192
 SphereCollider:
   m_ObjectHideFlags: 0
