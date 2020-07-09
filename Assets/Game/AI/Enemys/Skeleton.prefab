@@ -613,7 +613,7 @@ MonoBehaviour:
     maxAttackDamage:
       baseValue: 3
     attackRange:
-      baseValue: 20
+      baseValue: 2
     attackSpeed:
       baseValue: 1
     startupSpeed:
