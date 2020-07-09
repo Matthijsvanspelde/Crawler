@@ -64,7 +64,6 @@ MonoBehaviour:
   points:
   - {fileID: 6223735642520394031}
   - {fileID: 6223735643794099478}
-  prefabObject: {fileID: 6223735642362271173}
   xPos: 0
   yPos: 0
   xSize: 0

@@ -306,7 +306,6 @@ MonoBehaviour:
   points:
   - {fileID: 160142102403258977}
   - {fileID: 160142102066482776}
-  prefabObject: {fileID: 160142102716077707}
   xPos: 0
   yPos: 0
   xSize: 0
@@ -822,6 +821,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TorchWithHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.63
       objectReference: {fileID: 0}
     - target: {fileID: 5309953684277738070, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}
@@ -1947,6 +1956,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TorchWithHolder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508746587574184578, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 5309953684277738070, guid: 4ef0c20a76f3e824ea9090f6598d52c5,
         type: 3}
