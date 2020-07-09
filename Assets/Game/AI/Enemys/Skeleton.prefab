@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTrigger: Attacking
-  damagedTrigger: 
+  damagedTrigger: Damaged
   shootingTrigger: 
   walkingTrigger: Walking
   idleTrigger: Idle
