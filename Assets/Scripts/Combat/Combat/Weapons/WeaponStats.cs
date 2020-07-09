@@ -11,6 +11,7 @@ public class WeaponStats
 
     [Header("Range")]
     [SerializeField] private Stat attackRange;
+    
 
     [Header("Speed")]
     [SerializeField] private Stat attackSpeed;

@@ -170,8 +170,8 @@ MonoBehaviour:
     baseValue: 20
   armour:
     baseValue: 0
-  model: {fileID: 0}
   animator: {fileID: 3846598315371847644}
+  model: {fileID: 0}
   detectionRadius: 4
   enemyWeapon: {fileID: 743853336220022858}
 --- !u!1 &4563250418315318761
@@ -281,8 +281,8 @@ MonoBehaviour:
     baseValue: 20
   armour:
     baseValue: 0
-  model: {fileID: 0}
   animator: {fileID: 3846598315371847644}
+  model: {fileID: 0}
   detectionRadius: 4
   enemyWeapon: {fileID: 743853336220022858}
 --- !u!1 &5112177740955491177
@@ -555,6 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9132096169170994376}
   - component: {fileID: 743853336220022858}
+  - component: {fileID: 5481956909848613192}
   m_Layer: 0
   m_Name: EnemyWeapon
   m_TagString: Untagged
@@ -596,6 +597,7 @@ MonoBehaviour:
       baseValue: 3
     attackRange:
       baseValue: 2
+    attackAngle: 94
     attackSpeed:
       baseValue: 1
     startupSpeed:
@@ -607,6 +609,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3328
   pointToHitFrom: {fileID: 4944547428918324711}
+--- !u!135 &5481956909848613192
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073308845898385092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7363305645011758020
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class Weapon : Equipment
         {
             pointToHitFrom = HitpointMover.instance.transform;
         }
+
+        
     }
 
     public void OnDrawGizmosSelected()

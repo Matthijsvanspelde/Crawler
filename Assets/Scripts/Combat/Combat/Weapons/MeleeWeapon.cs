@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class MeleeWeapon : Weapon
 {
+    [Range(0, 360)]
+    [SerializeField] private float attackAngle;
+
+    private bool doAttack = false;
+
+    private void Awake()
+    {
+        SetTrigger();
+    }
+
+    private void SetTrigger()
+    {
+        SphereCollider triggerCollider = GetComponent<SphereCollider>();
+        triggerCollider.isTrigger = true;
+        triggerCollider.radius = Stats.AttackRange.GetValue();
+    }
+
     public override void HandleAttack()
     {
         if (CanAttack)
@@ -16,20 +33,14 @@ public class MeleeWeapon : Weapon
     public IEnumerator DoAttack()
     {
         yield return new WaitForSeconds(Stats.StartupSpeed.GetValue());
-        RaycastHit hit = GetRayCastHit();
-        if (hit.collider != null && !hit.collider.isTrigger)
-        {
-            //we hit something
-            Debug.DrawLine(pointToHitFrom.position, hit.point, Color.red, 2f);
-            HandleHit(hit);
-        }
+        doAttack = true;
 
         HandleWeapon();
     }
 
-    private void HandleHit(RaycastHit hit)
+    private void HandleHit(Collider col)
     {
-        StatLine HitStatHolder = hit.collider.GetComponent<StatLine>();
+        StatLine HitStatHolder = col.GetComponent<StatLine>();
 
         //Make sure we did not hit something NoneHitable
         if (HitStatHolder != null)
@@ -38,16 +49,60 @@ public class MeleeWeapon : Weapon
         }
     }
 
-    private RaycastHit GetRayCastHit()
+    private void OnTriggerStay(Collider other)
     {
-        Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
+        if (doAttack)
+        {
+            Vector3 rayEndPoint = other.transform.position - transform.position;
+            float angle = Vector3.Angle(rayEndPoint, transform.forward);
+            if (angle < attackAngle - 30)
+            {
+                if (IsHit(rayEndPoint))
+                {
+                    HandleHit(other);
+                }
+            }
+            doAttack = false;
+        }
+    }
+
+    private bool IsHit(Vector3 playerPos)
+    {
+        Ray ray = new Ray(transform.position, playerPos);
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 10f);
         if (Physics.Raycast(ray, out hit, Stats.AttackRange.GetValue(), CanHit))
         {
-            return hit;
+            Debug.DrawRay(transform.position, playerPos, Color.blue, 5f);
+            return true;
         }
- 
-        return hit;
+
+        return false;
     }
+
+    private void OnDrawGizmos()
+    {
+        float totalFOV = attackAngle;
+        float rayRange = Stats.AttackRange.GetValue();
+        float halfFOV = totalFOV / 2.0f;
+        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
+        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
+        Vector3 leftRayDirection = leftRayRotation * transform.forward;
+        Vector3 rightRayDirection = rightRayRotation * transform.forward;
+        Gizmos.DrawRay(transform.position, leftRayDirection * rayRange);
+        Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
+        //Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
+
+    //private RaycastHit GetRayCastHit()
+    //{
+    //    Ray ray = new Ray(pointToHitFrom.position, pointToHitFrom.forward);
+    //    RaycastHit hit;
+    //    Debug.DrawRay(ray.origin, ray.direction, Color.blue, 10f);
+    //    if (Physics.Raycast(ray, out hit, Stats.AttackRange.GetValue(), CanHit))
+    //    {
+    //        return hit;
+    //    }
+
+    //    return hit;
+    //}
 }
