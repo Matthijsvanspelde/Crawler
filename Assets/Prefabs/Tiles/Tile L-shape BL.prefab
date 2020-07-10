@@ -154,12 +154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37af5ff4b81ac654e8ee51a26633eb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 955d5b21a58cefd4581e46b33836f8e7, type: 2}
+  data: {fileID: 11400000, guid: 9f8ee1834044df240be4cdc356f317ad, type: 2}
   middlePoint: {fileID: 3011789585076696653}
   points:
   - {fileID: 6234709785107263913}
   - {fileID: 3011789585158215961}
-  prefabObject: {fileID: 3011789585587601866}
   xPos: 0
   yPos: 0
   xSize: 0
