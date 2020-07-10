@@ -22,6 +22,7 @@ public class MapGenerator : MonoBehaviour
 
     private int LoopedAmount = 1;
     private int TotalChance = 0;
+    private int MaxAmountOfTryToGetTile = 1000;
 
     private bool KeepFilling = true;
 
@@ -106,10 +107,23 @@ public class MapGenerator : MonoBehaviour
     {
         float ToSpawnSideDistance = 0;
 
-        while (ToSpawnSideDistance == 0)
+        int i = 0;
+
+        bool keepSearching = true;
+
+        while (keepSearching)
         {
             ToSpawn = GetRandomTile();
             ToSpawnSideDistance = sideCalc.GetSideDistance(ToSpawn, sideCalc.GetOpositeSide((Side)side));
+            i++;
+
+            //No Tile Found after max amount of try's
+            if (i > MaxAmountOfTryToGetTile)
+                keepSearching = false;
+
+            //Found tile that fits
+            if (ToSpawnSideDistance != 0)
+                keepSearching = false;
         }
 
         return ToSpawnSideDistance;
