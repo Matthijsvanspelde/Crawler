@@ -39,6 +39,7 @@ public class WalkToRandomPosOnNavMesh : AIState
             }
             yield return Time.deltaTime;
         }
+        StopAllCoroutines();
     }
     
     private void SetRandomDestinationOfAgent(NavMeshAgent agent)

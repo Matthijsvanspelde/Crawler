@@ -23,6 +23,11 @@ public class LookForPlayer : AIState
         AwakeState();
     }
 
+    public override void AwakeState(NavMeshAgent agent)
+    {
+        AwakeState();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (lookForPlayer)
@@ -64,6 +69,7 @@ public class LookForPlayer : AIState
     {
         SetTrigger();
         lookForPlayer = true;
+        Done = false;
     }
 
     private void SetTrigger()
