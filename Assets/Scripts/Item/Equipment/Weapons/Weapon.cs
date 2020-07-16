@@ -38,11 +38,11 @@ public class Weapon : Equipment
 
     }
 
-    public virtual void HandleAttack()
+    public virtual void HandleAttack(bool isPlayer = false)
     {
         if (CanAttack)
         {
-            if (animator == null)
+            if (isPlayer)
                 SetAnimator();
             
             animator.SetCombatTrigger();
@@ -52,7 +52,7 @@ public class Weapon : Equipment
 
     private void SetAnimator()
     {
-        animator = GetComponentInParent<Transform>().GetComponentInParent<AnimationTriggerer>();
+        animator = transform.parent.GetComponentInParent<AnimationTriggerer>();
     }
 
     public IEnumerator AttackSpeedTimer()

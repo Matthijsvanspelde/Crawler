@@ -21,16 +21,16 @@ public class MeleeWeapon : Weapon
         triggerCollider.radius = Stats.AttackRange.GetValue();
     }
 
-    public override void HandleAttack()
+    public override void HandleAttack(bool isPlayer = false)
     {
         if (CanAttack)
         {
-            base.HandleAttack();
-            StartCoroutine(DoAttack());
+            base.HandleAttack(isPlayer);
+            StartCoroutine(DoAttack(isPlayer));
         }
     }
 
-    public IEnumerator DoAttack()
+    public IEnumerator DoAttack(bool isplayer)
     {
         yield return new WaitForSeconds(Stats.StartupSpeed.GetValue());
         doAttack = true;
@@ -45,7 +45,14 @@ public class MeleeWeapon : Weapon
         //Make sure we did not hit something NoneHitable
         if (HitStatHolder != null)
         {
-            HitStatHolder.TakeDamage(Mathf.RoundToInt(Stats.RandomDamage()));
+            if (HitStatHolder.transform.CompareTag("Player"))
+            {
+                 PlayerStats.instance.TakeDamage(Stats.RandomDamage(), true);
+            }
+            else
+            {
+                HitStatHolder.TakeDamage(Stats.RandomDamage(), false);
+            }
         }
     }
 

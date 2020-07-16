@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Bits: 512
   pointToHitFrom: {fileID: 0}
   hasManaCost: 1
-  maxManaCost: 10
+  ManaCost: 1
   isProjectile: 1
   spellProjectile: {fileID: 2620580766401421831, guid: 29bc763bccda83c479b8107d49a48ef1,
     type: 3}

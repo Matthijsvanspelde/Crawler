@@ -6,18 +6,22 @@ public class MagicWeapon : Weapon
 {
     [Header("Mana")]
     [SerializeField] private bool hasManaCost;
-    [SerializeField] private int maxManaCost = 10;
+    [SerializeField] private int ManaCost = 10;
     [Header("Projectile")]
     [SerializeField] private bool isProjectile;
     [SerializeField] private Projectile spellProjectile;
     [Header("SelfTargeting")]
     [SerializeField] private bool isSelfTargeting;
 
-    public override void HandleAttack()
+    public override void HandleAttack(bool isPlayer = false)
     {
         if (CanAttack)
         {
-            base.HandleAttack();
+            if (isPlayer)
+                if (ManaCost > PlayerStats.instance.CurrentMana)
+                    return;
+
+            base.HandleAttack(isPlayer);
             if (IsProjectile)
             {
                 this.StartCoroutine(HandleProjectile());
@@ -26,6 +30,9 @@ public class MagicWeapon : Weapon
             {
                 HandleSelfTargeting();
             }
+
+            if (isPlayer)
+                HandleManaCost();
         }
     }
 
@@ -48,8 +55,26 @@ public class MagicWeapon : Weapon
 
     }
 
+    private bool CheckManaCost()
+    {
+        float currentMana = PlayerStats.instance.CurrentMana;
+
+        if (currentMana >= ManaCost)
+            return true;
+        else
+            return false;
+    }
+
+    private void HandleManaCost()
+    {
+        if (hasManaCost)
+        {
+            PlayerStats.instance.DecreaseCurrentMana(ManaCost);
+        }
+    }
+
     public bool HasManaCost { get => hasManaCost; }
-    public int MaxManaCost { get => maxManaCost; }
+    public int MaxManaCost { get => ManaCost; }
     public bool IsProjectile { get => isProjectile; }
     public bool IsSelfTargeting { get => isSelfTargeting; }
 }

@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
         try
         {
             weaponToAttackWith = (Weapon)equipment;
-            weaponToAttackWith.HandleAttack();
+            weaponToAttackWith.HandleAttack(true);
         }
         catch (System.Exception)
         {

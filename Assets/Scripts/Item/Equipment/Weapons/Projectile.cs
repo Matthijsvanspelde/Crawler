@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
             StatLine enemy = other.GetComponent<StatLine>();
             if (enemy != null)
             {
-                enemy.TakeDamage(Mathf.RoundToInt(damage));
+                enemy.TakeDamage(Mathf.RoundToInt(damage), false);
             }
             //Destroy projectile
             DestroySelf();

@@ -13,20 +13,29 @@ public class StatLine : MonoBehaviour
     [Header("Animator")]
     public AnimationTriggerer animator;
 
-    private int currentHealth;
+    public delegate void HealthChanged(int currentValue);
+    public HealthChanged OnHealthChanged;
 
-    private void Awake()
+    public int currentHealth;
+
+    private void Start()
     {
         currentHealth = Mathf.RoundToInt(maxHealth.GetValue());
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool isPlayer)
     {
         damage -= Mathf.RoundToInt(armour.GetValue());
         currentHealth -= damage;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, int.MaxValue);
         Debug.Log(transform.name + " takes " + damage + " damage.");
+
+        if (isPlayer)
+        {
+            OnHealthChanged.Invoke(currentHealth);
+        }
+
         animator.SetDamagedTrigger();
         if (currentHealth == 0)
         {
