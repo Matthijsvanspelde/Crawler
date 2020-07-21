@@ -38,14 +38,32 @@ public class Projectile : MonoBehaviour
 
         if (Contains(CanHit,other.gameObject.layer))
         {
-            //Do damage
-            StatLine enemy = other.GetComponent<StatLine>();
-            if (enemy != null)
+            if (other.tag == "Player")
             {
-                enemy.TakeDamage(Mathf.RoundToInt(damage), false);
+                DoPlayerHit();
             }
+            else
+            {
+                DoEnemyHit(other);
+            }
+
             //Destroy projectile
             DestroySelf();
+        }
+    }
+
+    private void DoPlayerHit()
+    {
+        PlayerStats.instance.TakeDamage(Mathf.RoundToInt(damage));
+    }
+
+    private void DoEnemyHit(Collider other)
+    {
+        //Do damage
+        StatLine enemy = other.GetComponent<StatLine>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(Mathf.RoundToInt(damage));
         }
     }
 
@@ -61,7 +79,6 @@ public class Projectile : MonoBehaviour
 
     private void ExplodeProjectile()
     {
-        //Make projectile explode
         ParticleSystem tempParticles = Instantiate(explosionGraphics);
         tempParticles.transform.position = transform.position;
         explosionGraphics.Play();

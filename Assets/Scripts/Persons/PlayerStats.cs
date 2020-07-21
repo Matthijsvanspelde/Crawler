@@ -49,6 +49,12 @@ public class PlayerStats : StatLine
         currentHealth = Mathf.RoundToInt(MaxHealth.GetValue());
     }
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        OnHealthChanged.Invoke(currentHealth);
+    }
+
     private void Update()
     {
         HandleManaTickTime();
