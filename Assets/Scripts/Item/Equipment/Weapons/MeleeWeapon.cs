@@ -47,11 +47,11 @@ public class MeleeWeapon : Weapon
         {
             if (HitStatHolder.transform.CompareTag("Player"))
             {
-                 PlayerStats.instance.TakeDamage(Stats.RandomDamage(), true);
+                 PlayerStats.instance.TakeDamage(Stats.RandomDamage());
             }
             else
             {
-                HitStatHolder.TakeDamage(Stats.RandomDamage(), false);
+                HitStatHolder.TakeDamage(Stats.RandomDamage());
             }
         }
     }

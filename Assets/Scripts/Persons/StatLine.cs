@@ -23,19 +23,14 @@ public class StatLine : MonoBehaviour
         currentHealth = Mathf.RoundToInt(maxHealth.GetValue());
     }
 
-    public void TakeDamage(int damage, bool isPlayer)
+    public virtual void TakeDamage(int damage)
     {
         damage -= Mathf.RoundToInt(armour.GetValue());
         currentHealth -= damage;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, int.MaxValue);
         Debug.Log(transform.name + " takes " + damage + " damage.");
-
-        if (isPlayer)
-        {
-            OnHealthChanged.Invoke(currentHealth);
-        }
-
+        
         animator.SetDamagedTrigger();
         if (currentHealth == 0)
         {

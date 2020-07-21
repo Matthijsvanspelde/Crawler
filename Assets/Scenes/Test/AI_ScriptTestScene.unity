@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabsList:
-  - {fileID: 8473084342124321979, guid: 35b27791570e8b249b18b34497682212, type: 3}
+  - {fileID: 5277162060550538593, guid: b8a682ec26363854088ea16f61d2fd7a, type: 3}
   startTile: {fileID: 6273315517503328083, guid: 0b8fb8fd82097bd4fbc86c03b1bb341a,
     type: 3}
   xSize: 2
